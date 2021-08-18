@@ -31,18 +31,51 @@ collections:
     label: "Pages"
     files:
       - file: "src/pages/index.md"
-        label: "Landing Page"
+        label: "LandingPage"
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
+          # hero banner, title and subheading
+          - {          
+            label: "Landing Box",
+            name: "landingBox",
+            widget: object,
+            fields: [
+              {label: Image, name: image, widget: image}
+              {label: Title, name: title, widget: string}
+              {label: Subheading, name: subheading, widget: string}
+            ]
+          }
+          # catchy text area
+          - {          
+            label: "Catchy Banner",
+            name: "catchyBanner",
+            widget: object,
+            fields: [
+              {label: Heading, name: heading, widget: string}
+              {label: Subheading, name: subheading, widget: string}
+            ]
+          }
+          # sections
+          - {          
+            label: "Sections",
+            name: sections,
+            widget: list,
+            fields: [
+              {label: Image, name: image, widget: image}
+              {label: Heading, name: heading, widget: string}
+              {label: Description, name: description, widget: text}
+              {
+                label: Button,
+                name: button,
+                widget: object,
+                fields: [
+                  {label: Text, name: text, widget: string},
+                  {label: "Link Location (relative)", name: linkLocation, widget: string}                  
+                ]
+              }
+            ]
+          }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
