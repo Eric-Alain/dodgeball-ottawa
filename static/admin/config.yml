@@ -1,5 +1,11 @@
 backend:
   name: git-gateway
+  local_backend:
+    true
+    # when using a custom proxy server port
+  url: http://localhost:8082/api/v1
+  # when accessing the local site from a host other than 'localhost' or '127.0.0.1'
+  allowed_hosts: ['192.168.0.1']
   branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
@@ -38,7 +44,7 @@ collections:
           # hero banner, title and subheading
           - {
               label: 'Landing Box',
-              name: 'landingBox',
+              name: landingBox,
               widget: object,
               fields:
                 [
@@ -47,31 +53,34 @@ collections:
                   { label: Subheading, name: subheading, widget: string }
                 ]
             }
-          # catchy text area
           - {
-              label: 'Catchy Banner',
-              name: 'catchyBanner',
-              widget: object,
-              fields: [{ label: Heading, name: heading, widget: string }, { label: Description, name: description, widget: text }]
-            }
-          # sections
+            label: 'Catchy Banner',
+            name: catchyBanner,
+            widget: object,
+            fields:
+              [
+                { label: Subheading, name: subheading, widget: string },
+                { label: Description, name: description, widget: text }
+              ]
+          }
           - {
-              label: 'Sections',
-              name: sections,
-              widget: list,
-              fields:
-                [
-                  { label: Image, name: image, widget: image },
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Button,
-                    name: button,
-                    widget: object,
-                    fields: [{ label: Text, name: text, widget: string }, { label: 'Link Location (relative)', name: linkLocation, widget: string }]
-                  }
-                ]
-            }
+            label: 'Page Sections',
+            name: pageSections,
+            widget: object,
+            fields:
+              [
+                {
+                  label: Section,
+                  name: section,
+                  widget: list,
+                  fields: [
+                      { label: Image, name: image, widget: image },
+                      { label: Subheading, name: subheading, widget: string },
+                      { label: Text, name: text, widget: text }
+                    ]
+                }
+              ]
+          }
       - file: 'src/pages/about/index.md'
         label: 'About'
         name: 'about'

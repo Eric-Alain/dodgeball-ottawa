@@ -10,7 +10,6 @@ import BlogRoll from '../components/BlogRoll';
 
 export const IndexPageTemplate = ({ landingBox, catchyBanner, sections }) => (
   <div>
-    {console.log(landingBox)}
     <div
       className='full-width-image margin-top-0'
       style={{
@@ -38,7 +37,7 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, sections }) => (
             padding: '0.25em'
           }}
         >
-          {landingBox}
+          {landingBox.title}
         </h1>
         <h3
           className='has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen'
@@ -50,7 +49,7 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, sections }) => (
             padding: '0.25em'
           }}
         >
-          {landingBox}
+          {landingBox.subheading}
         </h3>
       </div>
     </div>
@@ -78,9 +77,7 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, sections }) => (
 );
 
 IndexPageTemplate.propTypes = {
-  landingBox: PropTypes.object,
-  catchyBanner: PropTypes.object,
-  sections: PropTypes.array
+  landingBox: PropTypes.object
 };
 
 const IndexPage = ({ data }) => {
@@ -88,7 +85,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <IndexPageTemplate landingBox={frontmatter.landingBox} catchyBanner={frontmatter.catchyBanner} sections={frontmatter.sections} />
+      <IndexPageTemplate landingBox={frontmatter.landingBox} />
     </Layout>
   );
 };
@@ -108,8 +105,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         landingBox {
-          title
-          subheading
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
@@ -117,6 +112,8 @@ export const pageQuery = graphql`
               }
             }
           }
+          subheading
+          title
         }
       }
     }
