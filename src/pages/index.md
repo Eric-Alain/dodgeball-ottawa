@@ -1,9 +1,7 @@
 ---
-templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
+templateKey: index-page
 mainpitch:
   title: Why Kaldi
   description: >
@@ -11,11 +9,19 @@ mainpitch:
     shouldn't just taste good, it should do good too. We source all of our beans
     directly from small scale sustainable farmers and make sure part of the
     profits are reinvested in their communities.
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+catchyBanner:
+  heading: We wanted to provide Ottawa with a dodgeball experience unlike anything
+    the city has to offer
+  description: >-
+    Dodgeball Ottawa’s (DBO) community has been playing dodgeball for many years
+    and in a variety of cities. They know what makes a great dodgeball community
+    and experience. 
+
+
+    Dodgeball Ottawa was founded because we believe we can do it better. We take pride in delivering high caliber play; elite athlete development; a friendly and informative community; and a wide range of leagues and events.
+
+
+    Whether you decide to join solo, or as a team; there is something for you in Dodgeball Ottawa.
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -51,6 +57,26 @@ intro:
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
+landingBox:
+  image: /img/erik-mclean-f7wx87zs4fu-unsplash.jpg
+  title: Dodgeball Ottawa
+  subheading: Delivering a premium dodgeball experience in Ottawa since 2013
+sections:
+  - image: /img/spencer-landing.jpg
+    heading: About us
+    description: >-
+      Founded in 2013 by Spencer Sarault, Dodgeball Ottawa is the embodiment of
+      a simple vision: 
+
+
+      Assembling the best in Ottawa and improving together.
+
+
+      This vision has led Spencer on an incredible journey; taking him, and other DBO members, across the globe in pursuit of playing dodgeball at the highest caliber.
+    button:
+      text: Read more
+      linkLocation: "#"
+title: Great coffee with a conscience
 main:
   heading: Great coffee with no compromises
   description: >
@@ -67,4 +93,9 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
+image: /img/home-jumbotron.jpg
+description: Kaldi is the ultimate spot for coffee lovers who want to learn
+  about their java’s origin and support the farmers that grew it. We take coffee
+  production, roasting and brewing seriously and we’re glad to pass that
+  knowledge to anyone.
 ---
