@@ -13,7 +13,7 @@ catchyBanner:
     local communities. Check our post or contact us directly for current
     availability.
 sections:
-  - image: /img/coffee.png
+  image: /img/coffee.png
   heading: string
   description: >
     We sell green and roasted coffee beans that are sourced directly from
