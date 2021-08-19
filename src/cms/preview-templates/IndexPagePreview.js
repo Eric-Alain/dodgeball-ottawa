@@ -8,7 +8,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        landingBox={data.landingBox}
+        landingBox={data.landingBox} 
         catchyBanner={data.catchyBanner || {}}
         sections={data.sections || {}}
       />
