@@ -12,6 +12,17 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           title: entry.getIn(['data', 'landingBox', 'title']),
           subheading: entry.getIn(['data', 'landingBox', 'subheading'])
         }}
+        catchyBanner={{
+          subheading: entry.getIn(['data', 'catchyBanner', 'subheading']),
+          description: entry.getIn(['data', 'catchyBanner', 'description'])
+        }}
+        pageSections={{
+          section: {
+            image: getAsset(entry.getIn(['data', 'pageSections', 'section', 'image'])),
+            subheading: entry.getIn(['data', 'pageSections', 'section', 'subheading']),
+            text: entry.getIn(['data', 'pageSections', 'section', 'text'])
+          }
+        }}
       />
     );
   }
