@@ -2,8 +2,8 @@
 templateKey: index-page
 landingBox:
   image: /img/jumbotron.jpg
-  title: string
-  subheading: string
+  title: Dodgeball Ottawa
+  subheading: We like sports
 catchyBanner:
   heading: string
   description: >
