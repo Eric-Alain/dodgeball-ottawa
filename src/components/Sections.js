@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link, graphql } from 'gatsby';
 
 const Sections = ({ pageSections }) => {
   return (
@@ -20,7 +21,9 @@ const Sections = ({ pageSections }) => {
                   <Card.Body>
                     <Card.Title>{section.subheading}</Card.Title>
                     <Card.Text>{section.text}</Card.Text>
-                    <Button variant='danger'>Go somewhere</Button>
+                    <Link className='btn section-btn' to={`${section.buttonLocation}`}>
+                      {section.buttonText}
+                    </Link>
                   </Card.Body>
                 </Card>
               </Col>
@@ -31,29 +34,6 @@ const Sections = ({ pageSections }) => {
     </>
   );
 };
-
-/*
-const FeatureGrid = ({ gridItems }) => (
-  <div className="columns is-multiline">
-    {gridItems.map((item) => (
-      <div key={item.text} className="column is-6">
-        <section className="section">
-          <div className="has-text-centered">
-            <div
-              style={{
-                width: '240px',
-                display: 'inline-block',
-              }}
-            >
-              <PreviewCompatibleImage imageInfo={item} />
-            </div>
-          </div>
-          <p>{item.text}</p>
-        </section>
-      </div>
-    ))}
-  </div>
-)*/
 
 Sections.propTypes = {
   pageSections: PropTypes.arrayOf(

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import Layout from '../components/Layout';
 import Sections from '../components/Sections';
@@ -34,8 +34,7 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) =>
         </Row>
         <Row className='bg-danger justify-content-center'>
           <Col xs='8' className='py-5'>
-            <h2 className='text-white font-weight-bold'>{catchyBanner.subheading}</h2>
-            <p className='text-white'>{catchyBanner.description}</p>
+            <div className='text-white'>{catchyBanner.body}</div>
           </Col>
         </Row>
         <Row>

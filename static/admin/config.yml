@@ -54,34 +54,39 @@ collections:
                 ]
             }
           - {
-            label: 'Catchy Banner',
-            name: catchyBanner,
-            widget: object,
-            fields:
-              [
-                { label: Subheading, name: subheading, widget: string },
-                { label: Description, name: description, widget: text }
-              ]
-          }
+              label: 'Catchy Banner',
+              name: catchyBanner,
+              widget: object,
+              fields: [{ label: Body, name: body, widget: markdown }]
+            }
           - {
-            label: 'Page Sections',
-            name: pageSections,
-            widget: object,
-            fields:
-              [
-                {
-                  label: Section,
-                  name: section,
-                  widget: list,
-                  default: [{ image: null, subheading: '', text: ''}],
-                  fields: [
-                      { label: Image, name: image, widget: image },
-                      { label: Subheading, name: subheading, widget: string },
-                      { label: Text, name: text, widget: text }
-                    ]
-                }
-              ]
-          }
+              label: 'Page Sections',
+              name: pageSections,
+              widget: object,
+              fields:
+                [
+                  {
+                    label: Section,
+                    name: section,
+                    widget: list,
+                    default: [{ image: null, subheading: '', text: '' }],
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Subheading, name: subheading, widget: string },
+                        { label: Text, name: text, widget: 'markdown' },
+                        { label: ButtonText, name: buttonText, widget: 'string', default: 'Learn more' },
+                        {
+                          label: ButtonLocation,
+                          name: buttonLocation,
+                          widget: 'select',
+                          options: ['/about', '/products', '/blog', '/contact', '/contact/examples'],
+                          default: ['#']
+                        }
+                      ]
+                  }
+                ]
+            }
       - file: 'src/pages/about/index.md'
         label: 'About'
         name: 'about'

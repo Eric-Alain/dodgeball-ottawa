@@ -14,8 +14,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           subheading: entry.getIn(['data', 'landingBox', 'subheading'])
         }}
         catchyBanner={{
-          subheading: entry.getIn(['data', 'catchyBanner', 'subheading']),
-          description: entry.getIn(['data', 'catchyBanner', 'description'])
+          body: entry.getIn(['data', 'catchyBanner', 'body'])
         }}
         pageSections={{
           section: entry.getIn(['data', 'pageSections', 'section']).toJS()
