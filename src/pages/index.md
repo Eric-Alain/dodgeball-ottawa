@@ -30,4 +30,7 @@ pageSections:
 
 
         This vision has led Spencer on an incredible journey; taking him, and other DBO members, across the globe in pursuit of playing dodgeball at the highest caliber.
+    - image: /img/1a32294484_10156431612252164_4286115372697911296_n.jpg
+      subheading: Heading 2
+      text: Some more text!
 ---
