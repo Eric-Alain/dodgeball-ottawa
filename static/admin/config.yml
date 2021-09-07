@@ -80,8 +80,8 @@ collections:
                           label: ButtonLocation,
                           name: buttonLocation,
                           widget: 'select',
-                          options: ['/about', '/products', '/blog', '/contact', '/contact/examples'],
-                          default: ['#']
+                          options: ['/', '/about', '/products', '/blog', '/contact', '/contact/examples'],
+                          default: ['/']
                         }
                       ]
                   }
