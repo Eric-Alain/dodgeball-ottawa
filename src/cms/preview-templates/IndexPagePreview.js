@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../templates/index-page'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const IndexPagePreview = ({ entry, getAsset }) => {
 
@@ -17,11 +18,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           description: entry.getIn(['data', 'catchyBanner', 'description'])
         }}
         pageSections={{
-          section: {
-            image: getAsset(entry.getIn(['data', 'pageSections', 'section', 'image'])),
-            subheading: entry.getIn(['data', 'pageSections', 'section', 'subheading']),
-            text: entry.getIn(['data', 'pageSections', 'section', 'text'])
-          }
+          section: entry.getIn(['data', 'pageSections', 'section']).toJS()
         }}
       />
     );

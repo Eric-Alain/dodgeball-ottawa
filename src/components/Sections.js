@@ -1,33 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-//import PreviewCompatibleImage from './PreviewCompatibleImage';
+import React from 'react';
+import PropTypes from 'prop-types';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const Sections = ({pageSections}) => {
+const Sections = ({ pageSections }) => {
   return (
-    <div className='page-sections'>
+    <>
       {pageSections.section.map((section, i) => (
-        <section key={i} className={`section-${i % 2 === 0 ? 'left' : 'right'}`}>
-          <Row className='justify-content-center'>
-            <Col xs='8' className='py-5'>
-              <GatsbyImage image={getImage(section.image)} alt='' />
-              <Card className='section-card'>
-                <Card.Body>
-                  <Card.Title>{section.subheading}</Card.Title>
-                  <Card.Text>{section.text}</Card.Text>
-                  <Button variant='danger'>Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </section>
+        <Col xs='12' className='px-0'>
+          <section key={i} className={`section-${i % 2 === 0 ? 'left' : 'right'}`}>
+            <Row className='justify-content-center'>
+              <Col xs='8' className='py-5 mb-5 mb-md-auto'>
+                {/*For Netlify previewer*/}
+                <PreviewCompatibleImage imageInfo={section} />
+                {/*Actual images*/}
+                <GatsbyImage image={getImage(section.image)} alt='' />
+                <Card className='section-card'>
+                  <Card.Body>
+                    <Card.Title>{section.subheading}</Card.Title>
+                    <Card.Text>{section.text}</Card.Text>
+                    <Button variant='danger'>Go somewhere</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </section>
+        </Col>
       ))}
-    </div>
+    </>
   );
-}
-
-
+};
 
 /*
 const FeatureGrid = ({ gridItems }) => (
@@ -53,7 +56,7 @@ const FeatureGrid = ({ gridItems }) => (
 )*/
 
 Sections.propTypes = {
-  gridItems: PropTypes.arrayOf(
+  pageSections: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       subheading: PropTypes.string,
@@ -62,4 +65,4 @@ Sections.propTypes = {
   )
 };
 
-export default Sections
+export default Sections;

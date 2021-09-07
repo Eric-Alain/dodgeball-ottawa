@@ -10,49 +10,191 @@ $primary-invert: $kaldi-red-invert;
 $body-color: #333;
 $black: #2b2523;
 
+/*Mobile vars*/
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+/*Mobile mixins*/
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px') {
+    @content;
+  }
+}
+
 .navbar .navbar-menu {
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
 .section-left {
   position: relative;
   z-index: 0;
   background: #f3f3f3;
+  white-space: break-spaces;
   .gatsby-image-wrapper {
     z-index: 0;
-    float: left;
+    left: -15%;
     max-width: 600px;
     border-radius: 0.25rem;
     box-shadow: 2px 2px 8px grey;
+
+    @include sm {
+      left: -15%;
+    }
+
+    @include md {
+      left: -5%;
+    }
+
+    @include lg {
+      left: 5%;
+    }
+
+    @include xl {
+      left: 15%;
+    }
   }
   .section-card {
     z-index: 1;
-    width: 600px;
     position: absolute;
     top: 30%;
-    left: 46%;
+    right: 5%;
+    width: 55%;
+    font-size: 0.7rem;
     box-shadow: 2px 2px 8px grey;
+
+    @include sm {
+      top: 45%;
+      right: 5%;
+      width: 55%;
+      font-size: 0.7rem;
+    }
+
+    @include md {
+      top: 28%;
+      right: 5%;
+      width: 45%;
+      font-size: 0.8rem;
+    }
+
+    @include lg {
+      top: 30%;
+      right: 5%;
+      width: 40%;
+      font-size: 0.9rem;
+    }
+
+    @include xl {
+      top: 30%;
+      right: 15%;
+      width: 600px;
+      font-size: auto;
+    }
   }
 }
 
-.section-right{
+.section-right {
   position: relative;
   z-index: 0;
   background: #efe6e6;
+  white-space: break-spaces;
   .gatsby-image-wrapper {
     z-index: 0;
     float: right;
+    right: -15%;
     max-width: 600px;
     border-radius: 0.25rem;
     box-shadow: 2px 2px 8px grey;
+
+    @include sm {
+      right: -15%;
+    }
+
+    @include md {
+      right: -5%;
+    }
+
+    @include lg {
+      right: 5%;
+    }
+
+    @include xl {
+      right: 15%;
+    }
   }
   .section-card {
     z-index: 1;
-    width: 600px;
     position: absolute;
     top: 30%;
-    right: 46%;
+    left: 5%;
+    width: 55%;
+    font-size: 0.7rem;
     box-shadow: 2px 2px 8px grey;
+
+    @include sm {
+      top: 45%;
+      left: 5%;
+      width: 55%;
+      font-size: 0.7rem;
+    }
+
+    @include md {
+      top: 28%;
+      left: 5%;
+      width: 45%;
+      font-size: 0.8rem;
+    }
+
+    @include lg {
+      top: 30%;
+      left: 5%;
+      width: 40%;
+      font-size: 0.9rem;
+    }
+
+    @include xl {
+      top: 30%;
+      left: 15%;
+      width: 600px;
+      font-size: auto;
+    }
   }
 }
 
