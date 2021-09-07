@@ -2,21 +2,9 @@
 templateKey: index-page
 landingBox:
   image: /img/jumbotron.jpg
-  title: "Dodgeball Ottawa "
-  subheading: We like sports
+  title: "Dodgeball Ottawa"
+  subheading: Delivering a premium dodgeball experience in Ottawa since 2013.
 catchyBanner:
-  description: >
-    Dodgeball Ottawa’s (DBO) community has been playing dodgeball for many years
-    and in a variety of cities. They know what makes a great dodgeball community
-    and experience. 
-
-
-    Dodgeball Ottawa was founded because we believe we can do it better. We take pride in delivering high caliber play; elite athlete development; a friendly and informative community; and a wide range of leagues and events.
-
-
-    Whether you decide to join solo, or as a team; there is something for you in Dodgeball Ottawa.
-  subheading: We wanted to provide Ottawa with a dodgeball experience unlike
-    anything the city has to offer
   body: >-
     ## We provide Ottawa with a dodgeball experience unlike anything the city
     has to offer.
