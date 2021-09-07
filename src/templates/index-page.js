@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import Layout from '../components/Layout';
 import Sections from '../components/Sections';
-import BlogRoll from '../components/BlogRoll';
+//import BlogRoll from '../components/BlogRoll';
 
 export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) => {
   return (
@@ -34,11 +34,13 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) =>
         </Row>
         <Row className='bg-danger justify-content-center'>
           <Col xs='8' className='py-5'>
-            <div className='text-white'>{catchyBanner.body}</div>
+            <div className='text-white'>
+              {catchyBanner.body}
+            </div>
           </Col>
         </Row>
         <Row>
-          <Sections pageSections={pageSections} />
+          <Sections pageSections={pageSections}/>
 
           {/*
             <Features gridItems={intro.blurbs} />
@@ -73,7 +75,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-
+  
   return (
     <Layout>
       <IndexPageTemplate landingBox={frontmatter.landingBox} catchyBanner={frontmatter.catchyBanner} pageSections={frontmatter.pageSections} />
@@ -107,8 +109,7 @@ export const pageQuery = graphql`
           subheading
         }
         catchyBanner {
-          subheading
-          description
+          body
         }
         pageSections {
           section {
@@ -119,6 +120,8 @@ export const pageQuery = graphql`
             }
             subheading
             text
+            buttonText
+            buttonLocation
           }
         }
       }

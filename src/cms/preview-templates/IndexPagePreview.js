@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../templates/index-page'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const IndexPagePreview = ({ entry, getAsset }) => {
-
+const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
   if (entry) {
     return (
       <IndexPageTemplate
@@ -14,18 +12,17 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           subheading: entry.getIn(['data', 'landingBox', 'subheading'])
         }}
         catchyBanner={{
-          body: widgetFpr(['data', 'catchyBanner', 'body'])
+          body: entry.getIn(['data', 'catchyBanner', 'body'])
         }}
         pageSections={{
           section: entry.getIn(['data', 'pageSections', 'section']).toJS()
         }}
       />
     );
+  } else {
+    return <div>Loading...</div>;
   }
-  else {
-    return <div>Loading...</div>
-  }
-}
+};
 
 IndexPagePreview.propTypes = {
   entry: PropTypes.shape({
