@@ -1,14 +1,20 @@
 @import '~bulma/sass/utilities/initial-variables';
 
 /* Config vars*/
-/* Kaldi logo brand color: #FD461E*/
-$kaldi-red: #d64000;
-$kaldi-red-invert: #fff;
+/* DBO red */
+$dbo-red: #881012;
+$dbo-red-invert: #fff;
 
-$primary: $kaldi-red;
-$primary-invert: $kaldi-red-invert;
+$primary: $dbo-red;
+$primary-invert: $dbo-red-invert;
 $body-color: #333;
 $black: #2b2523;
+
+/*Color opacity function*/
+@mixin colorOpacify($color, $r, $g, $b, $a) {
+  background: rgba($r, $g, $b, $a);
+  color: $color;
+}
 
 /*Mobile vars*/
 // Small tablets and large smartphones (landscape view)
@@ -59,141 +65,172 @@ $screen-xl-min: 1200px;
   }
 }
 
+/**********************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1.5rem;
+}
+
+.dbo-red {
+  background: $dbo-red;
+  color: $dbo-red-invert;
+}
+
+.dbo-red-half {
+  @include colorOpacify($dbo-red-invert, 136, 16, 18, 0.5);
+}
+
 .navbar .navbar-menu {
   box-shadow: none !important;
 }
 
-.section-left {
-  position: relative;
-  z-index: 0;
-  background: #f3f3f3;
-  white-space: break-spaces;
-  .gatsby-image-wrapper {
-    z-index: 0;
-    left: -15%;
-    max-width: 600px;
-    border-radius: 0.25rem;
-    box-shadow: 2px 2px 8px grey;
+.landing-sections {
+  &:nth-child(odd) {
+    background: #000;
+  }
+  &:nth-child(even) {
+    background: #1b1b1b;
+  }
+  padding: 8rem 0 15rem 0;
 
-    @include sm {
+  .section-left {
+    position: relative;
+    z-index: 0;
+    white-space: break-spaces;
+    .gatsby-image-wrapper {
+      z-index: 0;
       left: -15%;
-    }
+      max-width: 600px;
+      border-radius: 0.25rem;
+      box-shadow: 2px 2px 8px grey;
 
-    @include md {
-      left: -5%;
-    }
+      @include md {
+        left: -10%;
+      }
 
-    @include lg {
-      left: 5%;
-    }
+      @include lg {
+        left: -5%;
+      }
 
-    @include xl {
-      left: 15%;
+      @include xl {
+        left: 0;
+      }
     }
-  }
-  .section-card {
-    z-index: 1;
-    position: absolute;
-    top: 30%;
-    right: 5%;
-    width: 55%;
-    font-size: 0.7rem;
-    box-shadow: 2px 2px 8px grey;
-
-    @include sm {
-      top: 45%;
+    .section-card {
+      z-index: 1;
+      position: absolute;
+      top: 30%;
       right: 5%;
       width: 55%;
       font-size: 0.7rem;
-    }
+      box-shadow: 2px 2px 8px grey;
 
-    @include md {
-      top: 28%;
-      right: 5%;
-      width: 45%;
-      font-size: 0.8rem;
-    }
+      @include sm {
+        top: 45%;
+        right: 5%;
+        width: 55%;
+        font-size: 0.7rem;
+      }
 
-    @include lg {
-      top: 30%;
-      right: 5%;
-      width: 40%;
-      font-size: 0.9rem;
-    }
+      @include md {
+        top: 28%;
+        right: 5%;
+        width: 45%;
+        font-size: 0.8rem;
+      }
 
-    @include xl {
-      top: 30%;
-      right: 15%;
-      width: 600px;
-      font-size: auto;
+      @include lg {
+        top: 30%;
+        left: 55%;
+        width: 40%;
+        font-size: 0.9rem;
+      }
+
+      @include xl {
+        top: 40%;
+        left: 50%;
+        width: 600px;
+        font-size: auto;
+      }
+
+      @include rwd(1400) {
+        top: 40%;
+        left: 45%;
+        width: 600px;
+      }
     }
   }
-}
 
-.section-right {
-  position: relative;
-  z-index: 0;
-  background: #efe6e6;
-  white-space: break-spaces;
-  .gatsby-image-wrapper {
+  .section-right {
+    position: relative;
     z-index: 0;
-    float: right;
-    right: -15%;
-    max-width: 600px;
-    border-radius: 0.25rem;
-    box-shadow: 2px 2px 8px grey;
-
-    @include sm {
+    white-space: break-spaces;
+    .gatsby-image-wrapper {
+      z-index: 0;
+      float: right;
       right: -15%;
-    }
+      max-width: 600px;
+      border-radius: 0.25rem;
+      box-shadow: 2px 2px 8px grey;
 
-    @include md {
-      right: -5%;
-    }
+      @include md {
+        right: -10%;
+      }
 
-    @include lg {
-      right: 5%;
-    }
+      @include lg {
+        right: -5%;
+      }
 
-    @include xl {
-      right: 15%;
+      @include xl {
+        right: 0;
+      }
     }
-  }
-  .section-card {
-    z-index: 1;
-    position: absolute;
-    top: 30%;
-    left: 5%;
-    width: 55%;
-    font-size: 0.7rem;
-    box-shadow: 2px 2px 8px grey;
-
-    @include sm {
-      top: 45%;
+    .section-card {
+      z-index: 1;
+      position: absolute;
+      top: 30%;
       left: 5%;
       width: 55%;
       font-size: 0.7rem;
-    }
+      box-shadow: 2px 2px 8px grey;
 
-    @include md {
-      top: 28%;
-      left: 5%;
-      width: 45%;
-      font-size: 0.8rem;
-    }
+      @include sm {
+        top: 45%;
+        left: 5%;
+        width: 55%;
+        font-size: 0.7rem;
+      }
 
-    @include lg {
-      top: 30%;
-      left: 5%;
-      width: 40%;
-      font-size: 0.9rem;
-    }
+      @include md {
+        top: 28%;
+        left: 5%;
+        width: 45%;
+        font-size: 0.8rem;
+      }
 
-    @include xl {
-      top: 30%;
-      left: 15%;
-      width: 600px;
-      font-size: auto;
+      @include lg {
+        top: 30%;
+        right: 55%;
+        width: 40%;
+        font-size: 0.9rem;
+      }
+
+      @include xl {
+        top: 30%;
+        right: 50%;
+        width: 600px;
+        font-size: auto;
+      }
+
+      @include rwd(1400) {
+        top: 40%;
+        left: 25%;
+        width: 600px;
+      }
     }
   }
 }
@@ -269,9 +306,9 @@ footer.footer {
 $menu-item-color: $white-ter;
 $menu-item-hover-color: $black !important;
 $menu-item-hover-background-color: $black;
-$menu-item-active-color: $kaldi-red-invert;
-$menu-item-active-background-color: $kaldi-red-invert;
-$menu-list-border-left: 1px solid $kaldi-red-invert;
+$menu-item-active-color: $dbo-red-invert;
+$menu-item-active-background-color: $dbo-red-invert;
+$menu-list-border-left: 1px solid $dbo-red-invert;
 $menu-label-color: $white-ter;
 
 .menu-label {

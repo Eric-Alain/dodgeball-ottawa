@@ -8,12 +8,12 @@ const Sections = ({ pageSections }) => {
   return (
     <>
       {pageSections.section.map((section, i) => (
-        <Col xs='12' className='px-0' key={i}>
+        <Col xs='12' className='landing-sections' key={i}>
           <section key={i} className={`section-${i % 2 === 0 ? 'left' : 'right'}`}>
             <Row className='justify-content-center'>
               <Col xs='8' className='py-5 mb-5 mb-md-auto'>
                 <PreviewCompatibleImage imageInfo={section} />
-                <Card className='section-card'>
+                <Card className='section-card p-4'>
                   <Card.Body>
                     <Card.Title>{section.subheading}</Card.Title>
                     <Card.Text>{section.text}</Card.Text>
