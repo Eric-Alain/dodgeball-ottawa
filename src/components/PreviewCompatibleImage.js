@@ -4,20 +4,18 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
   
-  const imageStyle = { borderRadius: '5px' }
-  
-  /*Destructed object variable assignment*/
-  const { alt = '', childImageSharp, image } = imageInfo
+  const imageStyle = { borderRadius: '5px' };
+
+  /*Destructed object  variable assignment*/
+  const { alt = '', image } = imageInfo;
 
   if (!!image && !!image.childImageSharp) {
     return <GatsbyImage style={imageStyle} image={getImage(image)} alt={alt} />;
   }
 
-  if (!!childImageSharp) {
-    return <GatsbyImage style={imageStyle} image={getImage(image)} alt={alt} />;
-  }
+  if (!!image && typeof image === 'string') return <img style={imageStyle} src={image} alt={alt} />;
 
-  return null
+  return null;
 }
 
 PreviewCompatibleImage.propTypes = {

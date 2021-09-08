@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../templates/index-page'
 
-const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
+const IndexPagePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
+
   if (entry) {
     return (
       <IndexPageTemplate
@@ -13,7 +14,7 @@ const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
         }}
         catchyBanner={{
           body: entry.getIn(['data', 'catchyBanner', 'body'])
-        }}
+        }}        
         pageSections={{
           section: entry.getIn(['data', 'pageSections', 'section']).toJS()
         }}
