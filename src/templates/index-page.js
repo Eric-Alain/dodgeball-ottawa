@@ -34,9 +34,9 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) =>
             </div>
           </Col>
         </Row>
-        <Row className='dbo-red justify-content-center'>
-          <Col xs='8' className='py-5'>
-            <MarkdownContent content={catchyBanner.body} />
+        <Row className='dbo-red justify-content-center catchy-banner'>
+          <Col xs='8'>
+            <MarkdownContent content={catchyBanner.body} className="markdown-content" />
           </Col>
         </Row>
         <Row>

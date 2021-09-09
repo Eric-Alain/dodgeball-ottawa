@@ -1,11 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import './all.scss';
 import useSiteMetadata from './SiteMetadata';
+import { Helmet } from 'react-helmet';
 import { withPrefix } from 'gatsby';
+import NavbarHeader from '../components/NavbarHeader';
+import Footer from '../components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import '../styles/all.scss';
+import './all.scss';
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -28,7 +29,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property='og:url' content='/' />
         <meta property='og:image' content={`${withPrefix('/')}img/og-image.jpg`} />
       </Helmet>
-      <Navbar />
+      <NavbarHeader />
       <div>{children}</div>
       <Footer />
     </div>

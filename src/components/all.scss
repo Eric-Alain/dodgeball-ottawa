@@ -1,14 +1,33 @@
-@import '~bulma/sass/utilities/initial-variables';
+/***********/
+/*VARIABLES*/
+/***********/
 
-/* Config vars*/
-/* DBO red */
+$white: #fff;
+$light-grey: #eff0f1;
 $dbo-red: #881012;
-$dbo-red-invert: #fff;
+$dbo-accent: #b60709;
+$alt-black: #1b1b1b;
+$black: #000;
 
 $primary: $dbo-red;
-$primary-invert: $dbo-red-invert;
-$body-color: #333;
-$black: #2b2523;
+$primary-invert: $white;
+
+
+//Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+//Small tablets (portrait view)
+$screen-md-min: 768px;
+
+//Tablets and small desktops
+$screen-lg-min: 992px;
+
+//Large tablets and desktops
+$screen-xl-min: 1200px;
+
+/********/
+/*MIXINS*/
+/********/
 
 /*Color opacity function*/
 @mixin colorOpacify($color, $r, $g, $b, $a) {
@@ -16,76 +35,155 @@ $black: #2b2523;
   color: $color;
 }
 
-/*Mobile vars*/
-// Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
+//Breakpoint mixins
 
-// Small tablets (portrait view)
-$screen-md-min: 768px;
-
-// Tablets and small desktops
-$screen-lg-min: 992px;
-
-// Large tablets and desktops
-$screen-xl-min: 1200px;
-
-/*Mobile mixins*/
-// Small devices
+//Small devices
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {
     @content;
   }
 }
 
-// Medium devices
+//Medium devices
 @mixin md {
   @media (min-width: #{$screen-md-min}) {
     @content;
   }
 }
 
-// Large devices
+//Large devices
 @mixin lg {
   @media (min-width: #{$screen-lg-min}) {
     @content;
   }
 }
 
-// Extra large devices
+//Extra large devices
 @mixin xl {
   @media (min-width: #{$screen-xl-min}) {
     @content;
   }
 }
 
-// Custom devices
+//Custom devices
 @mixin rwd($screen) {
   @media (min-width: $screen+'px') {
     @content;
   }
 }
 
-/**********************/
+/*****************************/
+/*SOME DEFAULTS AND OVERRIDES*/
+/*****************************/
+html {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1.5rem;
+  font-size: auto!important;
+  margin-bottom: 1.5rem!important;
+}
+
+.text-white {
+  color: white;
 }
 
 .dbo-red {
-  background: $dbo-red;
-  color: $dbo-red-invert;
+  background: $primary !important;
+  color: $primary-invert !important;
 }
 
 .dbo-red-half {
-  @include colorOpacify($dbo-red-invert, 136, 16, 18, 0.5);
+  @include colorOpacify($primary-invert, 136, 16, 18, 0.5);
 }
 
-.navbar .navbar-menu {
-  box-shadow: none !important;
+.full-width-image {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  &:hover {
+    filter: brightness(1.4);
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  -webkit-transition: all 0.3s ease-out !important;
+  transition: all 0.3s ease-out !important;
+}
+
+/********/
+/*NAVBAR*/
+/********/
+
+/*Custom variant*/
+.navbar-white .navbar-nav .nav-link {
+  color: $primary-invert;
+}
+
+.navbar-white .navbar-nav .nav-link:hover {
+  background: $primary;
+}
+
+.navbar {
+  .navbar-brand {
+    img {
+      margin: -12px auto;
+    }
+  }
+
+  .navbar-nav {
+    .dropdown-toggle {
+      &:after {
+        display: none;
+      }
+    }
+
+    .dropdown:hover > .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .navbar-nav.site-menu {
+    .nav-link,
+    .dropdown-menu {
+      margin-left: 0.8rem;
+    }
+  }
+}
+
+/********/
+/*FOOTER*/
+/********/
+footer {
+  background-color: $light-grey;
+  padding: 3rem 2rem;
+
+  a {
+    color: $primary;
+    &:hover {
+      color: $dbo-accent;
+    }
+  }
+}
+
+/************/
+/*INDEX PAGE*/
+/************/
+
+.catchy-banner {
+  padding: 5rem 0;
 }
 
 .landing-sections {
@@ -235,107 +333,10 @@ h6 {
   }
 }
 
-.content .taglist {
-  list-style: none;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 1.5rem;
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: center;
-
-  li {
-    padding: 0 2rem 1rem 0;
-    margin-bottom: 1.5rem;
-    margin-top: 0;
-  }
-}
-
-.full-width-image {
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-position: bottom;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 16px 10px;
-  font-size: 18px;
-  font-size: 1rem;
-  line-height: 1.25;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  font-weight: 700;
-  color: #cc3700;
-  text-align: center;
-  -webkit-box-shadow: inset 0 0 0 2px #cc3700;
-  box-shadow: inset 0 0 0 2px #f40;
-  -webkit-transition: all 0.15s ease;
-  transition: all 0.15s ease;
-}
-
-.margin-top-0 {
-  margin-top: 0 !important;
-}
-
-.navbar-item .icon {
-  color: $primary;
-}
-/* Override for use of svg's from https://simpleicons.org/ */
-.icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: currentColor;
-}
-.navbar-brand .navbar-item.logo {
-  padding: 0 1rem;
-}
-footer.footer {
-  padding: 3rem 0rem 0rem;
-  background-color: transparent;
-}
-
-/*Menu overrides*/
-$menu-item-color: $white-ter;
-$menu-item-hover-color: $black !important;
-$menu-item-hover-background-color: $black;
-$menu-item-active-color: $dbo-red-invert;
-$menu-item-active-background-color: $dbo-red-invert;
-$menu-list-border-left: 1px solid $dbo-red-invert;
-$menu-label-color: $white-ter;
-
-.menu-label {
-  font-size: 1em !important;
-  text-align: left;
-}
-.menu-list {
-  list-style: none !important;
-  text-align: left;
-}
-.social {
-  padding: 2em;
-}
-.social a {
-  padding: 0.5em 0.5em 0.3em 0.5em;
-  border-radius: 1em;
-  background-color: $white-ter;
-  margin: 0.5em;
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  display: inline;
-}
-
+/*crush these later, probably*/
 // blog roll
 .blog-list-item.is-featured {
-  background-color: #d6400033;
+  background-color: $light-grey;
 }
 .blog-list-item header {
   display: flex;
@@ -344,20 +345,4 @@ $menu-label-color: $white-ter;
 .blog-list-item .featured-thumbnail {
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
-}
-
-@import '~bulma';
-
-// responsiveness
-+ tablet-only .blog-list-item .featured-thumbnail {
-  flex-basis: 50%;
-}
-
-+ mobile .blog-list-item header {
-  display: block;
-}
-.blog-list-item .featured-thumbnail {
-  text-align: center;
-  max-width: 70%;
-  margin: 0 0 1em;
 }
