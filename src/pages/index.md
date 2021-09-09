@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
 landingBox:
-  image: /img/jumbotron.jpg
-  title: "Dodgeball Ottawa"
+  image: /img/dbo-banner-cropped.jpg
+  title: Dodgeball Ottawa
   subheading: Delivering a premium dodgeball experience in Ottawa since 2013.
 catchyBanner:
   body: >-
@@ -37,4 +37,20 @@ pageSections:
       text: Check out the league schedules! Never miss a game.
       buttonText: Learn more
       buttonLocation: /products
+    - buttonText: See all events
+      buttonLocation: /events
+      image: /img/000-39868584_1169061496604886_430518171607236608_o.jpg
+      subheading: Events
+      text: See what Dodgeball Ottawa is up to next. Check out and register for
+        upcoming tournaments or events.
+    - buttonText: Check out galleries
+      buttonLocation: /galleries
+      image: /img/galleries-landing.jpg
+      subheading: Galleries
+      text: See galleries from past seasons, events.
+    - buttonText: Contact
+      buttonLocation: /contact
+      image: /img/contact-landing.jpg
+      subheading: Contact
+      text: Have more questions? We are ready to help. Reach out!
 ---
