@@ -202,7 +202,8 @@ footer {
     .gatsby-image-wrapper {
       z-index: 0;
       left: -15%;
-      max-width: 600px;
+      max-width: 650px;
+      height: 600px;
       border-radius: 0.25rem;
       box-shadow: 2px 2px 8px grey;
 
@@ -221,44 +222,45 @@ footer {
     .section-card {
       z-index: 1;
       position: absolute;
-      top: 30%;
+      top: 50%;
       right: 5%;
       width: 55%;
       font-size: 0.7rem;
-      box-shadow: 2px 2px 8px grey;
+      box-shadow: -1px 1px 30px $primary;
 
       @include sm {
-        top: 45%;
+        top: 55%;
         right: 5%;
         width: 55%;
         font-size: 0.7rem;
       }
 
       @include md {
-        top: 28%;
+        top: 30%;
         right: 5%;
         width: 45%;
         font-size: 0.8rem;
       }
 
       @include lg {
-        top: 30%;
         left: 55%;
         width: 40%;
         font-size: 0.9rem;
       }
 
       @include xl {
-        top: 40%;
         left: 50%;
         width: 600px;
         font-size: auto;
       }
 
       @include rwd(1400) {
-        top: 40%;
         left: 45%;
         width: 600px;
+      }
+      .btn {
+        background: $primary;
+        color: $primary-invert
       }
     }
   }
@@ -271,7 +273,8 @@ footer {
       z-index: 0;
       float: right;
       right: -15%;
-      max-width: 600px;
+      max-width: 650px;
+      height: 600px;
       border-radius: 0.25rem;
       box-shadow: 2px 2px 8px grey;
 
@@ -290,44 +293,45 @@ footer {
     .section-card {
       z-index: 1;
       position: absolute;
-      top: 30%;
+      top: 50%;
       left: 5%;
       width: 55%;
       font-size: 0.7rem;
-      box-shadow: 2px 2px 8px grey;
+      box-shadow: -1px 1px 30px $primary;
 
       @include sm {
-        top: 45%;
+        top: 55%;
         left: 5%;
         width: 55%;
         font-size: 0.7rem;
       }
 
       @include md {
-        top: 28%;
+        top: 30%;
         left: 5%;
         width: 45%;
         font-size: 0.8rem;
       }
 
       @include lg {
-        top: 30%;
         right: 55%;
         width: 40%;
         font-size: 0.9rem;
       }
 
       @include xl {
-        top: 30%;
         right: 50%;
         width: 600px;
         font-size: auto;
       }
 
       @include rwd(1400) {
-        top: 40%;
         left: 25%;
         width: 600px;
+      }
+      .btn {
+        background: $alt-black;
+        color: $primary-invert
       }
     }
   }

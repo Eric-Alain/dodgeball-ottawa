@@ -17,7 +17,7 @@ const Sections = ({ pageSections }) => {
                   <Card.Body>
                     <Card.Title>{section.subheading}</Card.Title>
                     <Card.Text>{section.text}</Card.Text>
-                    <Link className='btn dbo-red' to={`${section.buttonLocation}`}>
+                    <Link className='btn' to={`${section.buttonLocation}`}>
                       {section.buttonText}
                     </Link>
                   </Card.Body>

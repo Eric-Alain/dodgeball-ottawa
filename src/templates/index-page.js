@@ -115,7 +115,7 @@ export const pageQuery = graphql`
           section {
             image {
               childImageSharp {
-                gatsbyImageData(formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
+                gatsbyImageData(width: 800, formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
               }
             }
             subheading
