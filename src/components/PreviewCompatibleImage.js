@@ -13,7 +13,14 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     return <GatsbyImage style={imageStyle} image={getImage(image)} alt={alt} />;
   }
 
-  if (!!image && typeof image === 'string') return <img style={imageStyle} src={image} alt={alt} />;
+  if (!!image && typeof image === 'string') return (
+    <img
+      style={imageStyle}
+      src={image}
+      alt={alt}
+      className='gatsby-image-wrapper'
+    />
+  );
 
   return null;
 }
