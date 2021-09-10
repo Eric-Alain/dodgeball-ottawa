@@ -15,7 +15,9 @@ const Sections = ({ pageSections }) => {
                 <PreviewCompatibleImage imageInfo={section} />
                 <Card className='section-card p-4'>
                   <Card.Body>
-                    <Card.Title>{section.subheading}</Card.Title>
+                    <Card.Title>
+                      <h3 className="mb-1 pb-1 border-bottom">{section.subheading}</h3>
+                    </Card.Title>
                     <Card.Text>{section.text}</Card.Text>
                     <Link className='btn' to={`${section.buttonLocation}`}>
                       {section.buttonText}

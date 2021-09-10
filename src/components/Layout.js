@@ -5,7 +5,6 @@ import { withPrefix } from 'gatsby';
 import NavbarHeader from '../components/NavbarHeader';
 import Footer from '../components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import '../styles/all.scss';
 import './all.scss';
 
 const TemplateWrapper = ({ children }) => {

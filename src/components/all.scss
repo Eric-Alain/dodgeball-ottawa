@@ -74,16 +74,9 @@ $screen-xl-min: 1200px;
 /*****************************/
 /*SOME DEFAULTS AND OVERRIDES*/
 /*****************************/
-html {
-  //width: 100vw;
-}
 html,
 body {
   overflow-x: hidden;
-}
-
-*, ::after, ::before {
-    box-sizing: content-box;
 }
 
 h1,
@@ -105,15 +98,41 @@ h6 {
   color: $primary-invert !important;
 }
 
-.dbo-red-half {
+.dbo-red-75 {
+  @include colorOpacify($primary-invert, 136, 16, 18, 0.75);
+}
+
+.dbo-red-50 {
   @include colorOpacify($primary-invert, 136, 16, 18, 0.5);
 }
 
+.dbo-red-25 {
+  @include colorOpacify($primary-invert, 136, 16, 18, 0.25);
+}
+
+.dbo-black {
+  background: $alt-black !important;
+  color: $primary-invert !important;
+}
+
+.dbo-black-75 {
+  @include colorOpacify($primary-invert, 27, 27, 27, 0.75);
+}
+
+.dbo-black-50 {
+  @include colorOpacify($primary-invert, 27, 27, 27, 0.5);
+}
+
+.dbo-black-25 {
+  @include colorOpacify($primary-invert, 27, 27, 27, 0.25);
+}
+
 .full-width-image {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
-  background-position: bottom;
+  background-position: top center;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,6 +168,19 @@ h6 {
     }
   }
 
+  .navbar-toggler {
+    color: $primary-invert;
+    border: 2px solid $primary-invert;
+    height: 3.25rem;
+    width: 3.5rem;
+
+    .navbar-toggler-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;      
+    }    
+  }
+
   .navbar-nav {
     .dropdown-toggle {
       &:after {
@@ -159,12 +191,55 @@ h6 {
     .dropdown:hover > .dropdown-menu {
       display: block;
     }
+
+    .dropdown-menu {
+      padding: 0;
+      border-radius: 0.35rem;
+      transition: all 0.3s ease-out;
+
+      .dropdown-item {
+        padding: 0.5rem;
+
+        &:first-child {
+          border-radius: 0.25rem 0.25rem 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 0.25rem 0.25rem;
+        }
+
+        &:hover {
+          background: $primary;
+          color: $primary-invert;
+        }
+      }
+      &:hover {
+        transition: all 0.3s ease-out;
+      }
+    }
+     
   }
 
   .navbar-nav.site-menu {
     .nav-link,
     .dropdown-menu {
       margin-left: 0.8rem;
+    }
+  }
+  .social-nav {
+    flex-direction: row;
+    padding-left: 0.65rem;
+
+    @include lg {
+      padding-left: inherit;
+    }
+
+    svg {
+      margin-right: 1rem;
+
+      @include lg {
+        margin-right: inherit!important;
+      }
     }
   }
 }
@@ -189,7 +264,11 @@ footer {
 /************/
 
 .catchy-banner {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
+
+  @include md {
+    padding: 5rem 0;
+  }
 }
 
 .landing-sections {
@@ -247,6 +326,20 @@ footer {
     width: 55%;
     font-size: 0.7rem;
     box-shadow: -1px 1px 30px $primary;
+
+    @include md {
+      font-size: 1rem;
+    }
+
+    .btn {
+      font-size: 0.7rem;
+      padding: 0.375rem 0.5rem;
+
+      @include md {
+        font-size: 1rem;
+        padding: 0.375rem 0.75rem;
+      }
+    }
   }
 
   .section-left {
@@ -272,26 +365,22 @@ footer {
         top: 55%;
         right: 8%;
         width: 55%;
-        font-size: 0.7rem;
       }
 
       @include md {
         top: 30%;
         right: 8%;
         width: 45%;
-        font-size: 0.8rem;
       }
 
       @include lg {
         left: 50%;
         width: 40%;
-        font-size: 0.9rem;
       }
 
       @include xl {
         left: 42%;
         width: 600px;
-        font-size: auto;
       }
 
       @include rwd(1400) {
@@ -330,26 +419,22 @@ footer {
         top: 55%;
         left: 5%;
         width: 55%;
-        font-size: 0.7rem;
       }
 
       @include md {
         top: 30%;
         left: 5%;
         width: 45%;
-        font-size: 0.8rem;
       }
 
       @include lg {
         right: 55%;
         width: 40%;
-        font-size: 0.9rem;
       }
 
       @include xl {
         right: 50%;
         width: 600px;
-        font-size: auto;
       }
 
       @include rwd(1600) {

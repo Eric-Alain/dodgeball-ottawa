@@ -10,62 +10,33 @@ import MarkdownContent from '../components/MarkdownContent';
 //import BlogRoll from '../components/BlogRoll';
 
 export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) => {
-  
   return (
-    <div>
-      <Container fluid>
-        <Row>
-          <Col xs='12' className='px-0'>
-            <div
-              className='full-width-image mt-0'
-              style={{
-                backgroundImage: `url(${!!landingBox.image.childImageSharp ? landingBox.image.childImageSharp.fluid.src : landingBox.image})`,
-                //Don't remove, this achieves parallax effect
-                backgroundPosition: `top left`,
-                backgroundAttachment: `fixed`
-              }}
-            >
-              <Row>
-                <Col className='dbo-red-half text-center rounded p-5'>
-                  <h1 className='display-2 font-weight-bold'>{landingBox.title}</h1>
-                  <h3>{landingBox.subheading}</h3>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-        <Row className='dbo-red justify-content-center catchy-banner'>
-          <Col xs='8'>
-            <MarkdownContent content={catchyBanner.body} className="markdown-content" />
-          </Col>
-        </Row>
-        <Row>
-          <Sections pageSections={pageSections} />
-
-          {/*
-            <Features gridItems={intro.blurbs} />
-            <div className="columns">
-              <div className="column is-12 has-text-centered">
-                <Link className="btn" to="/products">
-                  See all products
-                </Link>
-              </div>
-            </div>
-            <div className="column is-12">
-              <h3 className="has-text-weight-semibold is-size-2">
-                Latest stories
-              </h3>
-              <BlogRoll />
-              <div className="column is-12 has-text-centered">
-                <Link className="btn" to="/blog">
-                  Read more
-                </Link>
-              </div>
-            </div>
-          */}
-        </Row>
-      </Container>
-    </div>
+    <Container fluid>
+      <Row>
+        <Col
+          xs='12'
+          className='full-width-image'
+          style={{
+            backgroundImage: `url(${!!landingBox.image.childImageSharp ? landingBox.image.childImageSharp.fluid.src : landingBox.image})`
+          }}
+        >
+          <Row className='justify-content-center'>
+            <Col xs='10' className='dbo-black-75 text-center rounded py-3'>
+              <h1 className='display-2 font-weight-bold'>{landingBox.title}</h1>
+              <h3>{landingBox.subheading}</h3>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+      <Row className='dbo-red justify-content-center catchy-banner'>
+        <Col xs='10' md='8'>
+          <MarkdownContent content={catchyBanner.body} className='markdown-content' />
+        </Col>
+      </Row>
+      <Row>
+        <Sections pageSections={pageSections} />
+      </Row>
+    </Container>
   );
 };
 
