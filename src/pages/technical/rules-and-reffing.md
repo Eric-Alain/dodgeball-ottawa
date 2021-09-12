@@ -5,24 +5,22 @@ pageSections:
   section:
     - subheading: On this page
       text: >-
-        [League rule
+        * [League rule
         updates](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a1)
-
 
         * [Referee (Monitor)](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a2)
 
         * [Game rules](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3)
-
-          * [Overview & players](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_1)
-          * [Live-ball/dead-ball](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_2)
-          * [Hitting](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_3)
-          * [Blocking](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_4)
-          * [Catching](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_5)
-          * [Returning players to game](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_6)
-          * [Flow of play](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_7)
-          * [Timeouts](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_8)
-          * [Ball retrieval (shagging)](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_9)
-          * [Sportsmanship and safety](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_10)
+            * [Overview & players](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_1)
+            * [Live-ball/dead-ball](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_2)
+            * [Hitting](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_3)
+            * [Blocking](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_4)
+            * [Catching](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_5)
+            * [Returning players to game](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_6)
+            * [Flow of play](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_7)
+            * [Timeouts](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_8)
+            * [Ball retrieval (shagging)](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_9)
+            * [Sportsmanship and safety](https://chrysalis-ranunculus-jhny.squarespace.com/rules-and-reffing#a3_10)
     - subheading: League rule updates
       text: >-
         <div class="notice-card dark">
