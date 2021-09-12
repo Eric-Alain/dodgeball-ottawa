@@ -120,7 +120,7 @@ h6 {
 }
 
 .dbo-black-50 {
-  @include colorOpacify($primary-invert, 27, 27, 27, 0.5);
+  @include colorOpacify($primary-invert, 27, 27, 27, 0.5); 
 }
 
 .dbo-black-25 {
