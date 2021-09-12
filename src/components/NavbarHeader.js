@@ -27,8 +27,6 @@ const NavbarHeader = () => {
     );
   }, [expand]);
 
-  console.log(toggleRef.current);
-
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='white'>
       <Container className='g-1'>

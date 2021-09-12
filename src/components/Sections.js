@@ -9,7 +9,7 @@ const Sections = ({ pageSections }) => {
     <>
       {pageSections.section.map((section, i) => (
         <Col xs='12' className='landing-sections' key={i}>
-          <section key={i} className={`section-${i % 2 === 0 ? 'left' : 'right'}`}>
+          <section className={`section-${i % 2 === 0 ? 'left' : 'right'}`}>
             <Row className='justify-content-center'>
               <Col xs='8' className='py-5 mb-5 mb-md-auto'>
                 <PreviewCompatibleImage imageInfo={section} />
