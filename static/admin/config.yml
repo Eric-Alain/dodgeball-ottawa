@@ -32,6 +32,36 @@ collections:
       - { label: 'Featured Image', name: 'featuredimage', widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+  
+  - file: 'src/pages/simple-pages/index.md'
+    label: 'Simple pages'
+    name: 'simplePages'
+    folder: 'src/pages'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'simple-pages' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Page Sections',
+          name: 'pageSections',
+          widget: 'object',
+          fields:
+            [
+              {
+                label: Section,
+                name: section,
+                widget: list,
+                default: [{ subheading: '', image: null, text: '' }],
+                fields:
+                  [
+                    { label: Subheading, name: subheading, widget: string },
+                    { label: Image, name: image, widget: image },
+                    { label: Text, name: text, widget: 'markdown' }
+                  ]
+              }
+            ]
+        }
 
   - name: 'pages'
     label: 'Pages'
@@ -96,13 +126,16 @@ collections:
                   }
                 ]
             }
+      
+
       - file: 'src/pages/about/index.md'
         label: 'About'
-        name: 'about'
+        name: 'About'
         fields:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'about-page' }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
+
       - file: 'src/pages/products/index.md'
         label: 'Products Page'
         name: 'products'

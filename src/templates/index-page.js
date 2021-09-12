@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-
 import { Container, Row, Col } from 'react-bootstrap';
-
 import Layout from '../components/Layout';
 import Sections from '../components/Sections';
 import MarkdownContent from '../components/MarkdownContent';
-//import BlogRoll from '../components/BlogRoll';
 
 export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) => {
   return (

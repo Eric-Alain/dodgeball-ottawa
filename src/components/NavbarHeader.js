@@ -21,8 +21,8 @@ const NavbarHeader = () => {
       {
         autoAlpha: 1,
         fontSize: '1em',
-        ease: Sine.easeOut,
-        duration: 0.3
+        ease: Sine.easeIn,
+        duration: 0.4
       }
     );
   }, [expand]);

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { IndexPageTemplate } from '../../templates/index-page'
 
-const IndexPagePreview = ({ entry, getAsset, widgetFor, widgetsFor }) => {
+const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (entry) {
     return (
