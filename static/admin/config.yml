@@ -33,14 +33,14 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
   
-  - file: 'src/pages/simple-pages/index.md'
-    label: 'Simple pages'
+  - label: 'Simple pages'
+    label_singular: 'Simple page'
     name: 'simplePages'
     folder: 'src/pages'
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'simple-pages' }
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'simple-page' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
           label: 'Page Sections',
@@ -67,7 +67,7 @@ collections:
     label: 'Pages'
     files:
       - file: 'src/pages/index.md'
-        label: 'LandingPage'
+        label: 'Landing Page'
         name: 'index'
         fields:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
