@@ -11,7 +11,7 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
   return (
     <main>
       <Container>
-        <h1 className='display-3 fw-bold mb-2 border-bottom'>{title}</h1>
+        <h1 className='display-3 fw-bold mb-2 pb-2 border-bottom'>{title}</h1>
         <Row>
           {pageSections.section.map((section, i) => (
             <Col xs='12' key={i}>
