@@ -119,7 +119,34 @@ collections:
                   [
                     { label: Subheading, name: subheading, widget: string },
                     { label: Image, name: image, widget: image, required: false },
-                    { label: Text, name: text, widget: 'markdown' }
+                    { label: Alt text, name: alt, widget: string, required: false },
+                    {
+                      label: 'Image float',
+                      name: imageFloat,
+                      widget: 'select',
+                      options:
+                        [
+                          'Left',
+                          'Right'
+                        ],
+                      default: ['Right'],
+                      required: false
+                    },
+                    {
+                      label: 'Image width',
+                      name: imageWidth,
+                      widget: 'select',
+                      options:
+                        [
+                          '25%',
+                          '50%',
+                          '75%'
+                        ],
+                      default: ['50%'],
+                      required: false
+                    },
+                    { label: Text, name: text, widget: 'markdown' },
+                    { label: "Second column text", name: extraText, widget: 'markdown', default: null, required: false }
                   ]
               }
             ]

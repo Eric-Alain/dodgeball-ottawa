@@ -1,26 +1,52 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const PreviewCompatibleImage = ({ imageInfo }) => {
   
-  const imageStyle = { borderRadius: '5px' };
+  const getFloatClass = (float) => {
+    switch (float) {
+      case 'Left':
+        return 'float-start me-3 mb-3';
+      case 'Right':
+        return 'float-end ms-3 mb-3';
+      default:
+        return 'float-end ms-3 mb-3';
+    }
+  };
+
+  const getWidthClass = (width) => {
+    switch (width) {
+      case '25%':
+        return 'w-25';
+      case '50%':
+        return 'w-50';
+      case '75%':
+        return 'w-75';
+      default:
+        return 'w-50';
+    }
+  };
 
   /*Destructed object  variable assignment*/
-  const { alt = '', image } = imageInfo;
+  const { alt = '', image, imageFloat, imageWidth } = imageInfo;
+
+  const [float, setFloat] = useState(getFloatClass(imageFloat));
+  const [width, setWidth] = useState(getWidthClass(imageWidth));
+
+  useEffect(() => {
+    setFloat(getFloatClass(imageFloat));
+    setWidth(getWidthClass(imageWidth));
+  }, [imageInfo, imageFloat, imageWidth]);
+
 
   if (!!image && !!image.childImageSharp) {
-    return <GatsbyImage style={imageStyle} image={getImage(image)} alt={alt} />;
+    return <GatsbyImage image={getImage(image)} className={`${float} ${width}`} alt={alt} />;
   }
 
-  if (!!image && typeof image === 'string') return (
-    <img
-      style={imageStyle}
-      src={image}
-      alt={alt}
-      className='gatsby-image-wrapper'
-    />
-  );
+  else if (!!image && typeof image === 'string') {
+    return <img src={image} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
+  }
 
   return null;
 }

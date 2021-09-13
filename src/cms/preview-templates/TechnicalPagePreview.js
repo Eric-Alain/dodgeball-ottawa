@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { TechnicalPageTemplate } from '../../templates/technical-page';
 
 const TechnicalPagePreview = ({ entry, getAsset }) => {
-  console.log(entry);
   if (entry) {
     return (
       <TechnicalPageTemplate

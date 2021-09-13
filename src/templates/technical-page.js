@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -7,36 +7,81 @@ import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
 export const TechnicalPageTemplate = ({ title, pageSections }) => {
+  const [pageSectionsState, setPageSectionsState] = useState(pageSections);
+
+  const renderElements = (obj, image, float, width, t1, t2) => {
+    // If user filled both body fields, but also added an image
+    if (t2 && image) {
+      return (
+        // Concatenate the fields in a single column and insert the image
+        <Col>
+          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
+          <MarkdownContent content={`${t1}\n\n${t2}`} className='markdown-content' />
+        </Col>
+      );
+    } else if (t2 && !image) {
+      return (
+        // Make content into a two column format without an image
+        <>
+          <Col xs='12' md='6'>
+            <MarkdownContent content={t1} className='markdown-content' />
+          </Col>
+          <Col xs='12' md='6'>
+            <MarkdownContent content={t2} className='markdown-content' />
+          </Col>
+        </>
+      );
+    } else {
+      return (
+        // Otherwise, single column with a floated image if one exists
+        <Col>
+          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
+          <MarkdownContent content={t1} className='markdown-content' />
+        </Col>
+      );
+    }
+  };
+
+  const renderSections = useCallback(() => {
+    return pageSectionsState.section.map((section, i) => {
+      return (
+        <Col xs='12' key={i}>
+          <section>
+            <h2>{section.subheading}</h2>
+            <Row>{renderElements(section, section.image, section.imageFloat, section.imageWidth, section.text, section.extraText)}</Row>
+          </section>
+        </Col>
+      );
+    });
+  }, [pageSectionsState.section]);
+
+  useEffect(() => {
+    setPageSectionsState(pageSections);
+    renderSections();
+  }, [pageSections, renderSections]);
 
   return (
     <main>
       <Container>
         <h1 className='display-3 fw-bold mb-2 pb-2 border-bottom'>{title}</h1>
-        <Row>
-          {pageSections.section.map((section, i) => (
-            <Col xs='12' key={i}>
-              <section>
-                <h2>{section.subheading}</h2>
-                <Row>
-                  <Col>
-                    {section.image ? <PreviewCompatibleImage imageInfo={section} /> : null}
-                    <MarkdownContent content={section.text} className='markdown-content' />
-                  </Col>
-                </Row>
-              </section>
-            </Col>
-          ))}
-        </Row>
+        <Row>{renderSections()}</Row>
       </Container>
     </main>
   );
 };
 
-/*TechnicalPageTemplate.propTypes = {
+TechnicalPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func
-};*/
+  pageSections: PropTypes.shape({
+    subheading: PropTypes.string,
+    image: PropTypes.object || PropTypes.string,
+    alt: PropTypes.string,
+    imageFloat: PropTypes.string,
+    imageWidth: PropTypes.string,
+    text: PropTypes.string,
+    extraText: PropTypes.string
+  })
+};
 
 const TechnicalPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
