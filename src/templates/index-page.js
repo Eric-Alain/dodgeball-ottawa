@@ -38,9 +38,23 @@ export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) =>
 };
 
 IndexPageTemplate.propTypes = {
-  landingBox: PropTypes.object,
-  catchyBanner: PropTypes.object,
-  pageSections: PropTypes.object
+  landingBox: PropTypes.shape({
+    image: PropTypes.object || PropTypes.string,
+    title: PropTypes.string,
+    subheading: PropTypes.string    
+  }),
+  catchyBanner: PropTypes.shape({
+    body: PropTypes.string
+  }),
+  pageSections: PropTypes.arrayOf({
+    section: PropTypes.shape({
+      image: PropTypes.object || PropTypes.string,
+      subheading: PropTypes.string,
+      text: PropTypes.string,
+      buttonText: PropTypes.string,
+      buttonLocation: PropTypes.string
+    })
+  })
 };
 
 const IndexPage = ({ data }) => {

@@ -28,6 +28,8 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     }
   };
 
+  
+
   /*Destructed object  variable assignment*/
   const { alt = '', image, imageFloat, imageWidth } = imageInfo;
 
@@ -44,8 +46,8 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     return <GatsbyImage image={getImage(image)} className={`${float} ${width}`} alt={alt} />;
   }
 
-  else if (!!image && typeof image === 'string') {
-    return <img src={image} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
+  else if (!!image.url && typeof image.url === 'string') {
+    return <img src={image.url} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
   }
 
   return null;

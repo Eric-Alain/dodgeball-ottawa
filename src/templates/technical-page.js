@@ -7,7 +7,6 @@ import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
 export const TechnicalPageTemplate = ({ title, pageSections }) => {
-
   const [pageSectionsState, setPageSectionsState] = useState(pageSections);
 
   const renderElements = (obj, image, t1, t2) => {
@@ -42,20 +41,19 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
       );
     }
   };
-
+  
   const renderSections = useCallback(() => {
-    return pageSectionsState.section.map((section, i) => {
-    console.log(section.id);
+    return pageSectionsState.section.map((item, i) => {
       return (
         <Col xs='12' key={i}>
           <section>
-            <h2 id={section.id}>{section.subheading}</h2>
-            <Row>{renderElements(section, section.image, section.text, section.extraText)}</Row>
+            <h2 id={item.id}>{item.subheading}</h2>
+            <Row>{renderElements(item, item.image, item.text, item.extraText)}</Row>
           </section>
         </Col>
       );
     });
-  }, [pageSectionsState.section]);
+  }, [pageSectionsState]);
 
   useEffect(() => {
     setPageSectionsState(pageSections);
@@ -74,17 +72,19 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
 
 TechnicalPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  pageSections: PropTypes.arrayOf({
-    section: PropTypes.shape({
-      subheading: PropTypes.string,
-      id: PropTypes.string,
-      image: PropTypes.object || PropTypes.string,
-      alt: PropTypes.string,
-      imageFloat: PropTypes.string,
-      imageWidth: PropTypes.string,
-      text: PropTypes.string,
-      extraText: PropTypes.string
-    })
+  pageSections: PropTypes.shape({
+    section: PropTypes.arrayOf(
+      PropTypes.shape({
+        subheading: PropTypes.string,
+        id: PropTypes.string,
+        image: PropTypes.oneOfType([PropTypes.object || PropTypes.string]),
+        alt: PropTypes.string,
+        imageFloat: PropTypes.array,
+        imageWidth: PropTypes.array,
+        text: PropTypes.string,
+        extraText: PropTypes.string
+      })
+    )
   })
 };
 
