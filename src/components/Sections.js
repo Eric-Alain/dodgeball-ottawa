@@ -13,10 +13,10 @@ const Sections = ({ pageSections }) => {
             <Row className='justify-content-center'>
               <Col xs='8' className='py-5 mb-5 mb-md-auto'>
                 <PreviewCompatibleImage imageInfo={section} />
-                <Card className='section-card p-4'>
+                <Card className='section-card p-0 p-md-4'>
                   <Card.Body>
                     <Card.Title>
-                      <h3 className="mb-1 pb-1 border-bottom">{section.subheading}</h3>
+                      <h3 className='mb-1 pb-1 border-bottom'>{section.subheading}</h3>
                     </Card.Title>
                     <Card.Text>{section.text}</Card.Text>
                     <Link className='btn' to={`${section.buttonLocation}`}>

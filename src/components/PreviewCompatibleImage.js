@@ -11,7 +11,7 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
       case 'Right':
         return 'float-end ms-3 mb-3';
       default:
-        return 'float-end ms-3 mb-3';
+        return '';
     }
   };
 
@@ -24,7 +24,7 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
       case '75%':
         return 'w-75';
       default:
-        return 'w-50';
+        return '';
     }
   };
 

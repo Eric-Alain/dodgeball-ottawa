@@ -436,35 +436,61 @@ footer {
       }
 
       @include lg {
+        left: auto;
         right: 55%;
         width: 40%;
       }
 
       @include xl {
+        left: auto;
         right: 50%;
         width: 600px;
       }
 
       @include rwd(1600) {
-        left: 15%;
+        left: auto;
+        right: 45%;
         width: 600px;
       }
 
-      @include rwd(1600) {
-        left: 15%;
-        width: 600px;
-      }
-
-      @include rwd(1800) {
-        left: 21%;
-        width: 600px;
-      }
       .btn {
         background: $alt-black;
         color: $primary-invert;
       }
     }
   }
+}
+
+/*********************/
+/**RULES AND REFFING**/
+/*********************/
+.notice-card {
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.notice-card.dark {
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+}
+
+.notice-card-header {
+  font-size: calc(1.5 * 1rem);
+  margin-bottom: 1rem;
+  padding-bottom:0.3rem;
+  border-bottom: 1px solid #dadada;
+}
+
+.notice-card-body ol {
+  padding-inline-start: 1rem;
+}
+
+.notice-card-body ol li{
+  margin-bottom: 0.6rem;
+}
+
+.notice-card-body ol ol{
+  padding-inline-start: 2rem;
 }
 
 /*crush these later, probably*/
