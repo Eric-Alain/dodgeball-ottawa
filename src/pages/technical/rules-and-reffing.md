@@ -3,7 +3,11 @@ templateKey: technical-page
 title: Rules and reffing
 pageSections:
   section:
-    - subheading: On this page
+    - imageFloat:
+        - Right
+      imageWidth:
+        - 50%
+      subheading: On this page
       text: "* [League rule updates](#a1)\r
 
         * [Referee (Monitor)](#a2)\r
@@ -29,7 +33,12 @@ pageSections:
         \    * [Ball retrieval (shagging)](#a3_9)\r
 
         \    * [Sportsmanship and safety](#a3_10)"
-    - subheading: League rule updates
+    - imageFloat:
+        - Right
+      imageWidth:
+        - 50%
+      subheading: League rule updates
+      id: a1
       text: >-
         <div class="notice-card dark">
             <div class="notice-card-header">
@@ -53,7 +62,6 @@ pageSections:
                 </ol>
             </div>
         </div>
-      id: a1
     - imageFloat:
         - Right
       imageWidth:
