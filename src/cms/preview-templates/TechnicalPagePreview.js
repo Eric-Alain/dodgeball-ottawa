@@ -4,11 +4,10 @@ import { TechnicalPageTemplate } from '../../templates/technical-page';
 
 const TechnicalPagePreview = ({ entry, getAsset }) => {
   if (entry) {
-    const dataObj = entry.getIn(['data']);
-    const data = dataObj ? dataObj.toJS() : {};
-    const section = [];
+    const data = entry.getIn(['data']) ? entry.getIn(['data']).toJS() : {};
+    let section = [];
 
-    if (data.hasOwnProperty(pageSections)) {
+    if (data.pageSections.section !== undefined) {
       section = data.pageSections.section.map((sec) => ({
         subheading: sec.subheading || '',
         id: sec.id || '',
