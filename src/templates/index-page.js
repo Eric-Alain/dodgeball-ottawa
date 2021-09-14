@@ -7,6 +7,7 @@ import Sections from '../components/Sections';
 import MarkdownContent from '../components/MarkdownContent';
 
 export const IndexPageTemplate = ({ landingBox, catchyBanner, pageSections }) => {
+  
   return (
     <Container fluid>
       <Row>

@@ -21,9 +21,6 @@ const TechnicalPagePreview = ({ entry, getAsset, widgetsFor }) => {
     return (
       <TechnicalPageTemplate
         title={entry.getIn(['data', 'title'])}
-        /*pageSections={{
-          section: entry.getIn(['data', 'pageSections', 'section']).toJS()
-        }}*/
         pageSections={{
           section: section
         }}

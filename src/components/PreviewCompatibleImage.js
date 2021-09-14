@@ -28,8 +28,6 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     }
   };
 
-  
-
   /*Destructed object  variable assignment*/
   const { alt = '', image, imageFloat, imageWidth } = imageInfo;
 
@@ -40,8 +38,9 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     setFloat(getFloatClass(imageFloat));
     setWidth(getWidthClass(imageWidth));
   }, [imageInfo, imageFloat, imageWidth]);
-  
+
   if (!!image && !!image.childImageSharp) {
+    
     return <GatsbyImage image={getImage(image)} className={`${float} ${width}`} alt={alt} />;
   }
   //For technical preview

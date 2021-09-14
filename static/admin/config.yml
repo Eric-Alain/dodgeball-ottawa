@@ -18,7 +18,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  
   # Collection of unique, root level pages that aren't to be built over and over
   - name: 'pages'
     label: 'Pages'
@@ -83,7 +82,6 @@ collections:
                   }
                 ]
             }
-      
 
       - file: 'src/pages/about/index.md'
         label: 'About'
@@ -92,9 +90,7 @@ collections:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'about-page' }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-  
-  
-  
+
   # Collection of all pages found in the technical menu
   - label: 'Technical pages'
     label_singular: 'technical page'
@@ -109,46 +105,21 @@ collections:
           label: 'Page Sections',
           name: 'pageSections',
           widget: 'object',
-          fields:
-            [
-              {
-                label: Section,
-                name: section,
-                widget: list,
-                fields:
-                  [
-                    { label: Subheading, name: subheading, widget: string },
-                    { label: ID, name: id, widget: string, required: false },
-                    { label: Image, name: image, widget: image, required: false },
-                    { label: Alt text, name: alt, widget: string, required: false },
-                    {
-                      label: 'Image float',
-                      name: imageFloat,
-                      widget: 'select',
-                      options:
-                        [
-                          'Left',
-                          'Right'
-                        ],
-                      default: ['Right']
-                    },
-                    {
-                      label: 'Image width',
-                      name: imageWidth,
-                      widget: 'select',
-                      options:
-                        [
-                          '25%',
-                          '50%',
-                          '75%'
-                        ],
-                      default: ['50%']
-                    },
-                    { label: Text, name: text, widget: 'markdown' },
-                    { label: "Second column text", name: extraText, widget: 'markdown', default: null, required: false }
-                  ]
-              }
+          fields: [{
+            label: Section,
+            name: section,            
+            widget: list,
+            fields: [
+              { label: Subheading, name: subheading, widget: string },
+              { label: ID, name: id, widget: string, required: false },
+              { label: Image, name: image, widget: image, required: false },
+              { label: Alt text, name: alt, widget: string, required: false },
+              { label: 'Image float', name: imageFloat, widget: 'select', options: ['Left', 'Right'] },
+              { label: 'Image width', name: imageWidth, widget: 'select', options: ['25%', '50%', '75%'] },
+              { label: Text, name: text, widget: 'markdown' },
+              { label: 'Second column text', name: extraText, widget: 'markdown', default: null, required: false }
             ]
+          }]
         }
 
   # Collection of all pages found in the league menu
@@ -180,7 +151,7 @@ collections:
               }
             ]
         }
-  
+
   # Blog
   - name: 'blog'
     label: 'Blog'

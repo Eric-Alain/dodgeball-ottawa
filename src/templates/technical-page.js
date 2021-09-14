@@ -6,11 +6,11 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
-export const TechnicalPageTemplate = ({ title, pageSections }) => {
+export const TechnicalPageTemplate = ({ title, pageSections }) => {  
+  
   const [pageSectionsState, setPageSectionsState] = useState(pageSections);
-console.log(pageSections);
+
   const renderElements = (obj, image, t1, t2) => {
-    
     // If user filled both body fields, but also added an image
     if (t2 && image) {
       return (
@@ -80,8 +80,8 @@ TechnicalPageTemplate.propTypes = {
         id: PropTypes.string,
         image: PropTypes.oneOfType([PropTypes.object || PropTypes.string]),
         alt: PropTypes.string,
-        imageFloat: PropTypes.array,
-        imageWidth: PropTypes.array,
+        imageFloat: PropTypes.oneOfType([PropTypes.array || PropTypes.string]),
+        imageWidth: PropTypes.oneOfType([PropTypes.array || PropTypes.string]),
         text: PropTypes.string,
         extraText: PropTypes.string
       })
@@ -90,8 +90,10 @@ TechnicalPageTemplate.propTypes = {
 };
 
 const TechnicalPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { markdownRemark } = data; 
+  const { frontmatter, html } = markdownRemark;
 
+  console.log(data);
   return (
     <Layout>
       <TechnicalPageTemplate title={frontmatter.title} pageSections={frontmatter.pageSections} />
