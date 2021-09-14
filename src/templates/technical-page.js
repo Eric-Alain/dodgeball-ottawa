@@ -47,7 +47,7 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
       return (
         <Col xs='12' key={i}>
           <section>
-            <h2>{section.subheading}</h2>
+            <h2 id={section.id}>{section.subheading}</h2>
             <Row>{renderElements(section, section.image, section.imageFloat, section.imageWidth, section.text, section.extraText)}</Row>
           </section>
         </Col>

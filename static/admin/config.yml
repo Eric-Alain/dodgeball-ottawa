@@ -118,6 +118,7 @@ collections:
                 fields:
                   [
                     { label: Subheading, name: subheading, widget: string },
+                    { label: ID, name: id, widget: string, required: false },
                     { label: Image, name: image, widget: image, required: false },
                     { label: Alt text, name: alt, widget: string, required: false },
                     {
