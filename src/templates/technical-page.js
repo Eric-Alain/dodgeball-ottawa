@@ -91,7 +91,6 @@ TechnicalPageTemplate.propTypes = {
 
 const TechnicalPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-
   return (
     <Layout>
       <TechnicalPageTemplate title={frontmatter.title} pageSections={frontmatter.pageSections} />
