@@ -45,7 +45,7 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
 
   const renderSections = useCallback(() => {
     return pageSectionsState.section.map((section, i) => {
-    console.log(section);
+    console.log(section.id);
       return (
         <Col xs='12' key={i}>
           <section>
@@ -74,14 +74,17 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
 
 TechnicalPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  pageSections: PropTypes.shape({
-    subheading: PropTypes.string,
-    image: PropTypes.object || PropTypes.string,
-    alt: PropTypes.string,
-    imageFloat: PropTypes.string,
-    imageWidth: PropTypes.string,
-    text: PropTypes.string,
-    extraText: PropTypes.string
+  pageSections: PropTypes.arrayOf({
+    section: PropTypes.shape({
+      subheading: PropTypes.string,
+      id: PropTypes.string,
+      image: PropTypes.object || PropTypes.string,
+      alt: PropTypes.string,
+      imageFloat: PropTypes.string,
+      imageWidth: PropTypes.string,
+      text: PropTypes.string,
+      extraText: PropTypes.string
+    })
   })
 };
 
@@ -102,8 +105,8 @@ TechnicalPage.propTypes = {
 export default TechnicalPage;
 
 export const technicalPageQuery = graphql`
-  query TechnicalPageByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query technicalPageQuery {
+    markdownRemark(id: { eq: "f5324d37-c593-55df-b44d-7260f1183785" }) {
       frontmatter {
         title
         pageSections {
@@ -115,6 +118,9 @@ export const technicalPageQuery = graphql`
             }
             subheading
             text
+            id
+            imageWidth
+            imageFloat
           }
         }
       }
