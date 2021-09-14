@@ -40,14 +40,17 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
     setFloat(getFloatClass(imageFloat));
     setWidth(getWidthClass(imageWidth));
   }, [imageInfo, imageFloat, imageWidth]);
-
-
+  
   if (!!image && !!image.childImageSharp) {
     return <GatsbyImage image={getImage(image)} className={`${float} ${width}`} alt={alt} />;
   }
-
-  else if (!!image.url && typeof image.url === 'string') {
+  //For technical preview
+  else if (image.path !== 'empty.svg' && typeof image.url === 'string') {
     return <img src={image.url} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
+  }
+  //For landing preview 
+  else if (!!image && typeof image === 'string') {
+    return <img src={image} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
   }
 
   return null;

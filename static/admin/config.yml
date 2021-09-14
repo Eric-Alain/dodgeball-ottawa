@@ -130,8 +130,7 @@ collections:
                           'Left',
                           'Right'
                         ],
-                      default: ['Right'],
-                      required: false
+                      default: ['Right']
                     },
                     {
                       label: 'Image width',
@@ -143,8 +142,7 @@ collections:
                           '50%',
                           '75%'
                         ],
-                      default: ['50%'],
-                      required: false
+                      default: ['50%']
                     },
                     { label: Text, name: text, widget: 'markdown' },
                     { label: "Second column text", name: extraText, widget: 'markdown', default: null, required: false }

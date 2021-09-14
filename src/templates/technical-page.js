@@ -8,8 +8,9 @@ import Layout from '../components/Layout';
 
 export const TechnicalPageTemplate = ({ title, pageSections }) => {
   const [pageSectionsState, setPageSectionsState] = useState(pageSections);
-
+console.log(pageSections);
   const renderElements = (obj, image, t1, t2) => {
+    
     // If user filled both body fields, but also added an image
     if (t2 && image) {
       return (
@@ -105,8 +106,8 @@ TechnicalPage.propTypes = {
 export default TechnicalPage;
 
 export const technicalPageQuery = graphql`
-  query technicalPageQuery {
-    markdownRemark(id: { eq: "f5324d37-c593-55df-b44d-7260f1183785" }) {
+  query technicalPageQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
         pageSections {
@@ -119,8 +120,6 @@ export const technicalPageQuery = graphql`
             subheading
             text
             id
-            imageWidth
-            imageFloat
           }
         }
       }
