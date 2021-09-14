@@ -165,4 +165,21 @@ pageSections:
                <p>Only the 6 players that begin a game may play for that game. An exception can be made if a player is injured; In which case a team-mate can replace the player, male for male, female for female.</p>
             </div>
         </div>
+    - imageFloat: Right
+      imageWidth: 50%
+      image: /img/contact-landing.jpg
+      subheading: Test
+      id: a3
+      text: >-
+        Players may pass balls to team-mates as long as they are “live” players
+        on the court.
+
+
+        Players may not kick balls at the opposing team.
+
+
+        To win a game one team must eliminate all the players on the opposing team.
+
+
+        Game wins and losses are tracked by the Refs.
 ---
