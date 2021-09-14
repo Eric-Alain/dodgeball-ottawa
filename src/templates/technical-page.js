@@ -7,9 +7,10 @@ import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
 export const TechnicalPageTemplate = ({ title, pageSections }) => {
+
   const [pageSectionsState, setPageSectionsState] = useState(pageSections);
 
-  const renderElements = (obj, image, float, width, t1, t2) => {
+  const renderElements = (obj, image, t1, t2) => {
     // If user filled both body fields, but also added an image
     if (t2 && image) {
       return (
@@ -44,11 +45,12 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
 
   const renderSections = useCallback(() => {
     return pageSectionsState.section.map((section, i) => {
+    console.log(section);
       return (
         <Col xs='12' key={i}>
           <section>
             <h2 id={section.id}>{section.subheading}</h2>
-            <Row>{renderElements(section, section.image, section.imageFloat, section.imageWidth, section.text, section.extraText)}</Row>
+            <Row>{renderElements(section, section.image, section.text, section.extraText)}</Row>
           </section>
         </Col>
       );
