@@ -6,14 +6,22 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
-export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {  
-  
+export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   const [technicalPageSectionsState, setTechnicalPageSectionsState] = useState(technicalPageSections);
 
-  const renderElements = (obj, image, t1, t2) => {  
-    
+  const renderElements = (obj, image, t1, t2) => {
+    // If image field was left empty
+    if (image !== '') {
+      return (
+        // Return a single column with a floated image if one exists (the default)
+        <Col>
+          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
+          <MarkdownContent content={t1} className='markdown-content' />
+        </Col>
+      );
+    }
     // If user filled both body fields, but also added an image
-    if (t2 && image.path !== "empty.svg") {
+    else if (t2 && image.path !== 'empty.svg') {
       return (
         // Concatenate the fields in a single column and insert the image
         <Col>
@@ -21,7 +29,7 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
           <MarkdownContent content={`${t1}\n\n${t2}`} className='markdown-content' />
         </Col>
       );
-    } else if (t2 && image.path === "empty.svg") {
+    } else if (t2 && image.path === 'empty.svg') {
       return (
         // Make content into a two column format without an image
         <>
@@ -35,7 +43,7 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
       );
     } else {
       return (
-        // Otherwise, single column with a floated image if one exists
+        // Otherwise, single column with a floated image if one exists (the default)
         <Col>
           {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
           <MarkdownContent content={t1} className='markdown-content' />
@@ -43,11 +51,11 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
       );
     }
   };
-  
+
   const renderSections = useCallback(() => {
-    return technicalPageSectionsState.technicalSection.map((item, i) => {      
+    return technicalPageSectionsState.technicalSection.map((item, i) => {
       const HTag = `${item.headingLevel}`;
-      console.log(item.headingLevel)
+      console.log(item);
       return (
         <Col xs='12' key={i}>
           <section>
@@ -80,6 +88,7 @@ TechnicalPageTemplate.propTypes = {
     technicalSection: PropTypes.arrayOf(
       PropTypes.shape({
         subheading: PropTypes.string,
+        headingLevel: PropTypes.string,
         id: PropTypes.string,
         image: PropTypes.oneOfType([PropTypes.object || PropTypes.string]),
         alt: PropTypes.string,
@@ -114,16 +123,17 @@ export const technicalPageQuery = graphql`
         title
         technicalPageSections {
           technicalSection {
+            subheading
+            headingLevel
             id
             image {
               childImageSharp {
                 gatsbyImageData(width: 800, formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
               }
             }
+            alt
             imageFloat
             imageWidth
-            subheading
-            headingLevel
             text
             extraText
           }

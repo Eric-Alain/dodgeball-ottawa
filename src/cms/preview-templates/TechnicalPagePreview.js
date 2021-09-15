@@ -10,9 +10,10 @@ const TechnicalPagePreview = ({ entry, getAsset }) => {
     if (data.hasOwnProperty('technicalPageSections')) {
       technicalSection = data.technicalPageSections.technicalSection.map((sec) => ({
         subheading: sec.subheading || '',
+        headingLevel: sec.headingLevel || '',
         id: sec.id || '',
-        alt: sec.alt || '',
         image: getAsset(sec.image) || null,
+        alt: sec.alt || '',
         imageFloat: sec.imageFloat || '',
         imageWidth: sec.imageWidth || '',
         text: sec.text || '',
