@@ -5,10 +5,10 @@ import { TechnicalPageTemplate } from '../../templates/technical-page';
 const TechnicalPagePreview = ({ entry, getAsset }) => {
   if (entry) {
     const data = entry.getIn(['data']) ? entry.getIn(['data']).toJS() : {};
-    let section = [];
+    let technicalSection = [];
 
     if (data.hasOwnProperty('technicalPageSections')) {
-      section = data.technicalPageSections.technicalSection.map((sec) => ({
+      technicalSection = data.technicalPageSections.technicalSection.map((sec) => ({
         subheading: sec.subheading || '',
         id: sec.id || '',
         alt: sec.alt || '',
@@ -23,8 +23,8 @@ const TechnicalPagePreview = ({ entry, getAsset }) => {
     return (
       <TechnicalPageTemplate
         title={entry.getIn(['data', 'title'])}
-        pageSections={{
-          section: section
+        technicalPageSections={{
+          technicalSection: technicalSection
         }}
       />
     );

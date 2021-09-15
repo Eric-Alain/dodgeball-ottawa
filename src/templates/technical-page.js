@@ -108,10 +108,15 @@ export const technicalPageQuery = graphql`
   query technicalPageQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        title
         technicalPageSections {
           technicalSection {
             id
-            image
+            image {
+              childImageSharp {
+                gatsbyImageData(width: 800, formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
+              }
+            }
             imageFloat
             imageWidth
             subheading
