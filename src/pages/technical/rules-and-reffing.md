@@ -3,10 +3,8 @@ templateKey: technical-page
 title: Rules and reffing
 technicalPageSections:
   technicalSection:
-    - imageFloat:
-        - ""
-      imageWidth:
-        - ""
+    - imageFloat: default
+      imageWidth: default
       subheading: On this page
       text: "* [League rule updates](#a1)\r
 
