@@ -47,6 +47,7 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   const renderSections = useCallback(() => {
     return technicalPageSectionsState.technicalSection.map((item, i) => {      
       const HTag = `${item.headingLevel}`;
+      console.log(item.headingLevel)
       return (
         <Col xs='12' key={i}>
           <section>
