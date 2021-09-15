@@ -202,19 +202,11 @@ h6 {
 
     .dropdown-menu {
       padding: 0;
-      border-radius: 0.35rem;
+      border-radius: 0;
       transition: all 0.3s ease-out;
 
       .dropdown-item {
         padding: 0.5rem;
-
-        &:first-child {
-          border-radius: 0.25rem 0.25rem 0 0;
-        }
-
-        &:last-child {
-          border-radius: 0 0 0.25rem 0.25rem;
-        }
 
         &:hover {
           background: $primary;
@@ -232,6 +224,7 @@ h6 {
     .nav-link,
     .dropdown-menu {
       margin-left: 0.8rem;
+      margin-top: 0;
     }
   }
   .social-nav {

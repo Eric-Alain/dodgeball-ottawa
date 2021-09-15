@@ -41,15 +41,15 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
 
   if (!!image && !!image.childImageSharp) {
     
-    return <GatsbyImage image={getImage(image)} className={`${float} ${width}`} alt={alt} />;
+    return <GatsbyImage image={getImage(image)} className={`${float} ${width} rounded`} alt={alt} />;
   }
   //For technical preview
   else if (image.path !== 'empty.svg' && typeof image.url === 'string') {
-    return <img src={image.url} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
+    return <img src={image.url} alt={alt} className={`${float} ${width} rounded gatsby-image-wrapper`} />;
   }
   //For landing preview 
   else if (!!image && typeof image === 'string') {
-    return <img src={image} alt={alt} className={`${float} ${width} gatsby-image-wrapper`} />;
+    return <img src={image} alt={alt} className={`${float} ${width} rounded gatsby-image-wrapper`} />;
   }
 
   return null;
