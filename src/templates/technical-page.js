@@ -10,9 +10,10 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   
   const [technicalPageSectionsState, setTechnicalPageSectionsState] = useState(technicalPageSections);
 
-  const renderElements = (obj, image, t1, t2) => {
+  const renderElements = (obj, image, t1, t2) => {    
+    console.log(image)
     // If user filled both body fields, but also added an image
-    if (t2 && image) {
+    if (t2 && image.path !== "empty.svg") {
       return (
         // Concatenate the fields in a single column and insert the image
         <Col>
@@ -20,7 +21,7 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
           <MarkdownContent content={`${t1}\n\n${t2}`} className='markdown-content' />
         </Col>
       );
-    } else if (t2 && !image) {
+    } else if (t2 && image.path === "empty.svg") {
       return (
         // Make content into a two column format without an image
         <>
@@ -44,7 +45,7 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   };
   
   const renderSections = useCallback(() => {
-    return technicalPageSectionsState.technicalSection.map((item, i) => {
+    return technicalPageSectionsState.technicalSection.map((item, i) => {      
       return (
         <Col xs='12' key={i}>
           <section>
@@ -80,8 +81,8 @@ TechnicalPageTemplate.propTypes = {
         id: PropTypes.string,
         image: PropTypes.oneOfType([PropTypes.object || PropTypes.string]),
         alt: PropTypes.string,
-        imageFloat: PropTypes.oneOfType([PropTypes.array || PropTypes.string]),
-        imageWidth: PropTypes.oneOfType([PropTypes.array || PropTypes.string]),
+        imageFloat: PropTypes.string,
+        imageWidth: PropTypes.string,
         text: PropTypes.string,
         extraText: PropTypes.string
       })
@@ -117,8 +118,11 @@ export const technicalPageQuery = graphql`
                 gatsbyImageData(width: 800, formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
               }
             }
+            imageFloat
+            imageWidth
             subheading
             text
+            extraText
           }
         }
       }
