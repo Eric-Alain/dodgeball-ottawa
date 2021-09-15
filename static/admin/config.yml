@@ -102,12 +102,12 @@ collections:
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'technical-page' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
-          label: 'Page Sections',
-          name: 'pageSections',
+          label: 'Technical page sections',
+          name: 'technicalPageSections',
           widget: 'object',
           fields: [{
             label: Section,
-            name: section,            
+            name: technicalSection,            
             widget: list,
             fields: [
               { label: Subheading, name: subheading, widget: string },
