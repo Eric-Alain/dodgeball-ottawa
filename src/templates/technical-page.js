@@ -10,8 +10,8 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   
   const [technicalPageSectionsState, setTechnicalPageSectionsState] = useState(technicalPageSections);
 
-  const renderElements = (obj, image, t1, t2) => {    
-    console.log(image)
+  const renderElements = (obj, image, t1, t2) => {  
+    
     // If user filled both body fields, but also added an image
     if (t2 && image.path !== "empty.svg") {
       return (
@@ -46,10 +46,11 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   
   const renderSections = useCallback(() => {
     return technicalPageSectionsState.technicalSection.map((item, i) => {      
+      const HTag = `${item.headingLevel}`;
       return (
         <Col xs='12' key={i}>
           <section>
-            <h2 id={item.id}>{item.subheading}</h2>
+            <HTag id={item.id}>{item.subheading}</HTag>
             <Row>{renderElements(item, item.image, item.text, item.extraText)}</Row>
           </section>
         </Col>
@@ -121,6 +122,7 @@ export const technicalPageQuery = graphql`
             imageFloat
             imageWidth
             subheading
+            headingLevel
             text
             extraText
           }
