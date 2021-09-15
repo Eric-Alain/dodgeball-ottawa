@@ -6,9 +6,9 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import MarkdownContent from '../components/MarkdownContent';
 import Layout from '../components/Layout';
 
-export const TechnicalPageTemplate = ({ title, pageSections }) => {  
+export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {  
   
-  const [pageSectionsState, setPageSectionsState] = useState(pageSections);
+  const [technicalPageSectionsState, setTechnicalPageSectionsState] = useState(technicalPageSections);
 
   const renderElements = (obj, image, t1, t2) => {
     // If user filled both body fields, but also added an image
@@ -44,7 +44,7 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
   };
   
   const renderSections = useCallback(() => {
-    return pageSectionsState.section.map((item, i) => {
+    return technicalPageSectionsState.technicalSection.map((item, i) => {
       return (
         <Col xs='12' key={i}>
           <section>
@@ -54,12 +54,12 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
         </Col>
       );
     });
-  }, [pageSectionsState]);
+  }, [technicalPageSectionsState]);
 
   useEffect(() => {
-    setPageSectionsState(pageSections);
+    setTechnicalPageSectionsState(technicalPageSections);
     renderSections();
-  }, [pageSections, renderSections]);
+  }, [technicalPageSections, renderSections]);
 
   return (
     <main>
@@ -73,8 +73,8 @@ export const TechnicalPageTemplate = ({ title, pageSections }) => {
 
 TechnicalPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  pageSections: PropTypes.shape({
-    section: PropTypes.arrayOf(
+  technicalPageSections: PropTypes.shape({
+    technicalSection: PropTypes.arrayOf(
       PropTypes.shape({
         subheading: PropTypes.string,
         id: PropTypes.string,
@@ -93,7 +93,7 @@ const TechnicalPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   return (
     <Layout>
-      <TechnicalPageTemplate title={frontmatter.title} pageSections={frontmatter.pageSections} />
+      <TechnicalPageTemplate title={frontmatter.title} technicalPageSections={frontmatter.technicalPageSections} />
     </Layout>
   );
 };
@@ -108,17 +108,14 @@ export const technicalPageQuery = graphql`
   query technicalPageQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        title
-        pageSections {
-          section {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 800, formats: [AUTO, WEBP, AVIF], quality: 50, placeholder: BLURRED)
-              }
-            }
+        technicalPageSections {
+          technicalSection {
+            id
+            image
+            imageFloat
+            imageWidth
             subheading
             text
-            id
           }
         }
       }

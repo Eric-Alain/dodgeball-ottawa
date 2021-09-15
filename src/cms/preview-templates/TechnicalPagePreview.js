@@ -7,12 +7,12 @@ const TechnicalPagePreview = ({ entry, getAsset }) => {
     const data = entry.getIn(['data']) ? entry.getIn(['data']).toJS() : {};
     let section = [];
 
-    if (data.pageSections.section !== undefined) {
-      section = data.pageSections.section.map((sec) => ({
+    if (data.hasOwnProperty('technicalPageSections')) {
+      section = data.technicalPageSections.technicalSection.map((sec) => ({
         subheading: sec.subheading || '',
         id: sec.id || '',
         alt: sec.alt || '',
-        image: getAsset(sec.image),
+        image: getAsset(sec.image) || null,
         imageFloat: sec.imageFloat || '',
         imageWidth: sec.imageWidth || '',
         text: sec.text || '',
