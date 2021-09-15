@@ -10,52 +10,71 @@ export const TechnicalPageTemplate = ({ title, technicalPageSections }) => {
   const [technicalPageSectionsState, setTechnicalPageSectionsState] = useState(technicalPageSections);
 
   const renderElements = (obj, image, t1, t2) => {
-    // If image field was left empty
-    if (image !== '') {
-      return (
-        // Return a single column with a floated image if one exists (the default)
-        <Col>
-          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
-          <MarkdownContent content={t1} className='markdown-content' />
-        </Col>
-      );
-    }
-    // If user filled both body fields, but also added an image
-    else if (t2 && image.path !== 'empty.svg') {
-      return (
-        // Concatenate the fields in a single column and insert the image
-        <Col>
-          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
-          <MarkdownContent content={`${t1}\n\n${t2}`} className='markdown-content' />
-        </Col>
-      );
-    } else if (t2 && image.path === 'empty.svg') {
-      return (
-        // Make content into a two column format without an image
-        <>
-          <Col xs='12' md='6'>
+    //If an image is returned at all
+    if (image !== null) {
+      
+      /**************************/
+      /*CONDITIONS FOR PREVIEWER*/
+      /**************************/
+      // If user filled both body fields, but also added an image
+      if (t2.length > 0 && image.path !== 'empty.svg') {
+        return (
+          // Concatenate the fields in a single column and insert the image
+          <Col>
+            {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
+            <MarkdownContent content={`${t1}\n\n${t2}`} className='markdown-content' />
+          </Col>
+        );
+      } else if (t2.length > 0 && image.path === 'empty.svg') {
+        return (
+          // Make content into a two column format without an image
+          <>
+            <Col xs='12' md='6'>
+              <MarkdownContent content={t1} className='markdown-content' />
+            </Col>
+            <Col xs='12' md='6'>
+              <MarkdownContent content={t2} className='markdown-content' />
+            </Col>
+          </>
+        );
+      } else {
+        return (
+          // Otherwise, single column with a floated image if one exists (the default)
+          <Col>
+            {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
             <MarkdownContent content={t1} className='markdown-content' />
           </Col>
-          <Col xs='12' md='6'>
-            <MarkdownContent content={t2} className='markdown-content' />
-          </Col>
-        </>
-      );
+        );
+      }
     } else {
-      return (
-        // Otherwise, single column with a floated image if one exists (the default)
-        <Col>
-          {image ? <PreviewCompatibleImage imageInfo={obj} /> : null}
-          <MarkdownContent content={t1} className='markdown-content' />
-        </Col>
-      );
+      /********************************/
+      /*CONDITIONS FOR PLAIN COMPONENT*/
+      /********************************/
+      if (t2.length > 0) {
+        return (
+          // Make content into a two column format without an image
+          <>
+            <Col xs='12' md='6'>
+              <MarkdownContent content={t1} className='markdown-content' />
+            </Col>
+            <Col xs='12' md='6'>
+              <MarkdownContent content={t2} className='markdown-content' />
+            </Col>
+          </>
+        );
+      } else {
+        return (
+          <Col>
+            <MarkdownContent content={t1} className='markdown-content' />
+          </Col>
+        );
+      }
     }
   };
 
   const renderSections = useCallback(() => {
     return technicalPageSectionsState.technicalSection.map((item, i) => {
       const HTag = `${item.headingLevel}`;
-      console.log(item);
       return (
         <Col xs='12' key={i}>
           <section>
