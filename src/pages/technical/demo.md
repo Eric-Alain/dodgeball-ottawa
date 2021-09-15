@@ -1,46 +1,25 @@
 ---
 templateKey: technical-page
-title: Demo
+title: Demo (don't delete)
 technicalPageSections:
   technicalSection:
     - imageFloat: Right
       headingLevel: h2
-      subheading: Heading 1
+      subheading: This page is needed in order for other pages to be properly queried
       alt: Kevin
       imageWidth: 50%
-      text: "It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like).\r
+      text: >-
+        **However, it's not a bad opportunity to use this page as a way of
+        demonstrating what the technical pages are capable of.**
 
-        \r
 
-        It is a long established fact that a reader will be distracted
-        by the readable content of a page when looking at its layout. The point
-        of using Lorem Ipsum is that it has a more-or-less normal distribution
-        of letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like).\r
+        Fake text to follow:
 
-        \r
 
-        It is a long established fact that a reader will be distracted
-        by the readable content of a page when looking at its layout. The point
-        of using Lorem Ipsum is that it has a more-or-less normal distribution
-        of letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like).\r\n"
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
       id: a1
       image: /img/contact-landing.jpg
       extraText: ""
@@ -61,7 +40,7 @@ technicalPageSections:
 
 
         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-      subheading: Heading 2
+      subheading: Heading (level 2)
       text: >-
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
