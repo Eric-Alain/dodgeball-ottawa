@@ -57,10 +57,8 @@ technicalPageSections:
         \r
 
         \    * [Sportsmanship and safety](#a3_10)"
-    - imageFloat:
-        - ""
-      imageWidth:
-        - ""
+    - imageFloat: Right
+      imageWidth: 50%
       subheading: Test
       id: ii
       image: /img/contact-landing.jpg
