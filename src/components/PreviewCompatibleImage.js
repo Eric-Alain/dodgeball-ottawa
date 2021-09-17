@@ -18,11 +18,11 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
   const getWidthClass = (width) => {
     switch (width) {
       case '25%':
-        return 'w-25';
+        return 'w-25 w-md-25';
       case '50%':
-        return 'w-50';
+        return 'w-100 w-md-50';
       case '75%':
-        return 'w-75';
+        return 'w-75 w-md-75';
       default:
         return '';
     }

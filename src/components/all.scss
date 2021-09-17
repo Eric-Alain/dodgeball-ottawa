@@ -97,6 +97,12 @@ h6 {
   margin-bottom: 1.5rem !important;
 }
 
+@media (min-width: 768px) {
+  .w-md-25 { width: 25%!important }
+  .w-md-50 { width: 50%!important }
+  .w-md-75 { width: 75%!important }
+}
+
 .text-white {
   color: white;
 }
@@ -128,7 +134,7 @@ h6 {
 }
 
 .dbo-black-50 {
-  @include colorOpacify($primary-invert, 27, 27, 27, 0.5); 
+  @include colorOpacify($primary-invert, 27, 27, 27, 0.5);
 }
 
 .dbo-black-25 {
@@ -185,8 +191,8 @@ h6 {
     .navbar-toggler-inner {
       display: flex;
       justify-content: center;
-      align-items: center;      
-    }    
+      align-items: center;
+    }
   }
 
   .navbar-nav {
@@ -217,7 +223,6 @@ h6 {
         transition: all 0.3s ease-out;
       }
     }
-     
   }
 
   .navbar-nav.site-menu {
@@ -239,7 +244,7 @@ h6 {
       margin-right: 1rem;
 
       @include lg {
-        margin-right: inherit!important;
+        margin-right: inherit !important;
       }
     }
   }
@@ -463,14 +468,14 @@ footer {
 }
 
 .notice-card.dark {
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
 }
 
 .notice-card-header {
   font-size: calc(1.5 * 1rem);
   margin-bottom: 1rem;
-  padding-bottom:0.3rem;
+  padding-bottom: 0.3rem;
   border-bottom: 1px solid #dadada;
 }
 
@@ -478,11 +483,11 @@ footer {
   padding-inline-start: 1rem;
 }
 
-.notice-card-body ol li{
+.notice-card-body ol li {
   margin-bottom: 0.6rem;
 }
 
-.notice-card-body ol ol{
+.notice-card-body ol ol {
   padding-inline-start: 2rem;
 }
 
@@ -499,3 +504,4 @@ footer {
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
 }
+
