@@ -2,7 +2,7 @@
 templateKey: index-page
 landingBox:
   image: /img/dbo-banner-cropped.jpg
-  title: Clean lines template
+  title: Clean lines template idea
   subheading: Delivering a premium dodgeball experience in Ottawa since 2013.
 catchyBanner:
   body: >-
